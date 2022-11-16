@@ -1,0 +1,29 @@
+[{
+        "id": 1,
+        "name": "MM/DD/YY"
+    },
+    {
+        "id": 2,
+        "name": "DD/MM/YY"
+    },
+    {
+        "id": 3,
+        "name": "YY/MM/DD"
+    },
+    {
+        "id": 4,
+        "name": "Month D, Yr"
+    },
+    {
+        "id": 5,
+        "name": "M/D/YY"
+    },
+    {
+        "id": 6,
+        "name": "D/M/YY"
+    },
+    {
+        "id": 7,
+        "name": "YY/M/D"
+    }
+]

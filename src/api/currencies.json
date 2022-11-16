@@ -1,0 +1,36 @@
+[{
+        "id": 1,
+        "name": "U.S. Dollar (USD)",
+        "symbol": "$"
+    },
+    {
+        "id": 2,
+        "name": "European Euro (EUR)",
+        "symbol": "€"
+    },
+    {
+        "id": 3,
+        "name": "Japanese Yen (JPY).",
+        "symbol": "¥"
+    },
+    {
+        "id": 4,
+        "name": "British Pound (GBP)",
+        "symbol": "£"
+    },
+    {
+        "id": 5,
+        "name": "Swiss Franc (CHF)",
+        "symbol": "CHF"
+    },
+    {
+        "id": 6,
+        "name": "Canadian Dollar (CAD)",
+        "symbol": "C$"
+    },
+    {
+        "id": 7,
+        "name": "Rupees (Rs)",
+        "symbol": "₹"
+    }
+]

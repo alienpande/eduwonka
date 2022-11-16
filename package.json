@@ -1,0 +1,96 @@
+{
+    "name": "eduwonka",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build:prod": "NODE_ENV=production vue-cli-service  build --mode production",
+        "build:staging": "NODE_ENV=production vue-cli-service  build --mode staging",
+        "build:edge": "NODE_ENV=production vue-cli-service  build --mode edge",
+        "preview": "node build/index.js --preview",
+        "lint": "eslint --ext .js,.vue src",
+        "test:unit": "jest --clearCache && vue-cli-service test:unit",
+        "test:ci": "npm run lint && npm run test:unit",
+        "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
+        "new": "plop"
+    },
+    "dependencies": {
+        "@fullcalendar/core": "^5.11.2",
+        "@fullcalendar/daygrid": "^5.11.2",
+        "@fullcalendar/interaction": "^5.11.2",
+        "@fullcalendar/list": "^5.11.2",
+        "@fullcalendar/timegrid": "^5.11.2",
+        "@fullcalendar/vue": "^5.11.2",
+        "@vee-validate/rules": "^4.5.11",
+        "actioncable-vue": "^2.3.2",
+        "apexcharts": "^3.28.1",
+        "axios": "^0.21.4",
+        "chart.js": "2",
+        "chokidar": "^3.5.2",
+        "core-js": "^3.6.5",
+        "element-ui": "^2.15.1",
+        "graphql": "^15.6.0",
+        "graphql-request": "^3.5.0",
+        "js-cookie": "^3.0.1",
+        "lint": "^0.7.0",
+        "mediasoup-client": "^3.6.52",
+        "nprogress": "^0.2.0",
+        "register-service-worker": "^1.7.1",
+        "script-ext-html-webpack-plugin": "^2.1.5",
+        "secure-ls": "^1.2.6",
+        "socket.io-client": "^4.5.1",
+        "v-tooltip": "^2.1.3",
+        "vee-validate": "^3.4.5",
+        "vue": "^2.6.11",
+        "vue-apexcharts": "^1.6.2",
+        "vue-chartjs": "^3.5.1",
+        "vue-ellipse-progress": "^1.3.1",
+        "vue-file-agent": "^1.7.3",
+        "vue-google-charts": "^0.3.3",
+        "vue-icon": "^2.2.0",
+        "vue-page-transition": "^0.2.2",
+        "vue-router": "^3.2.0",
+        "vue-slick-carousel": "^1.0.6",
+        "vue-viewports": "^3.1.2",
+        "vuedraggable": "^2.24.3",
+        "vuex": "^3.4.0",
+        "vuex-persistedstate": "^4.0.0-beta.3"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-plugin-pwa": "~4.5.0",
+        "@vue/cli-plugin-router": "~4.5.0",
+        "@vue/cli-plugin-vuex": "~4.5.0",
+        "@vue/cli-service": "^4.5.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^6.2.2",
+        "node-sass": "^6.0.1",
+        "prettier": "^2.2.1",
+        "sass-loader": "^10",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended",
+            "@vue/prettier"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}

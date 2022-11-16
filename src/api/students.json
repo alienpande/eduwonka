@@ -1,0 +1,42 @@
+[{
+        "id": 1,
+        "name": "Mayank Jhawar",
+        "img": "/assets/images/profile.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Anuj Maheshwari",
+        "img": "/assets/images/profile.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Surbhi Maheshwari",
+        "img": "/assets/images/profile.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Vivek S",
+        "img": "/assets/images/profile.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Palak Kakani",
+        "img": "/assets/images/profile.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Gulshan Mishra",
+        "img": "/assets/images/profile.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Pavan Kocher",
+        "img": "/assets/images/profile.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Gulshan Mishra",
+        "img": "/assets/images/profile.jpg"
+    }
+
+]

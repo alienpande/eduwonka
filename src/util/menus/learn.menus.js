@@ -1,0 +1,231 @@
+import { MAIN } from "./main.menus";
+export const Routes = {
+  LN_BASE: MAIN.LEARN,
+  LN_DASHBOARD: MAIN.LEARN + "/dashbaord",
+  LN_CLASSROOM: MAIN.LEARN + "/classroom",
+  LN_CLASSROOM_FORM: MAIN.LEARN + "/classroom-form",
+  LN_CLASS_JOIN: MAIN.LEARN + "/join-class",
+  LN_CLASS_DETAIL_GROUP : MAIN.LEARN + "/detail-class",
+  LN_ONLINE_CLASS:MAIN.LEARN + "/online-class",
+  LN_CLASS_CREATE_GROUP:MAIN.LEARN + "/create-group-class",
+  LN_SYLLABUS: MAIN.LEARN + "/syllabus",
+  LN_SYLLABUS_DETAILS :MAIN.LEARN + "/syllabus-detail",
+  LN_COURSES: MAIN.LEARN + "/courses",
+  LN_COURSES_INTRODUCTION: MAIN.LEARN + "/course-introduction",
+  LN_COURSES_SYLLABUS: MAIN.LEARN + "/course-syllabus",
+  LN_COURSES_ASSESSMENT: MAIN.LEARN + "/course-assessment",
+  LN_COURSES_COURSECONTENT: MAIN.LEARN + "/course-content",
+  LN_COURSES_ASSIGNMENT: MAIN.LEARN + "/course-assignment",
+  LN_COURSES_GRADECENTER: MAIN.LEARN + "/course-gradecenter",
+  LN_COURSES_ANALYTICS: MAIN.LEARN + "/course-analytics",
+ LN_ASSESMENT: MAIN.LEARN + "/assesment",
+ LN_ASSESMENT_RESULT: MAIN.LEARN + "/assesment-result",
+ LN_ASSESMENT_QUICK_TEST:MAIN.LEARN + "/assesment-quick-test",
+  LN_ASSIGNMENTS: MAIN.LEARN + "/assignments",
+  LN_ASSIGNMENTS_CREATE: MAIN.LEARN + "/assignments-create",
+  LN_ASSIGNMENTS_DETAILS_COMPLETE :  MAIN.LEARN + "/assignments-complete-details",
+  LN_ASSIGNMENTS_DETAILS: MAIN.LEARN + "/assignments-details",
+  LN_CERTIFICATE: MAIN.LEARN + "/certificate",
+  LN_CERTIFICATE_FORM: MAIN.LEARN + "/certificate-form",
+  SH_CREATENEWTEMPLATE: MAIN.LEARN + "/create-template",
+  LN_EXAM: MAIN.LEARN + "/exam",
+  LN_EXAM_MATH: MAIN.LEARN + "/exam/mathematics",
+  LN_EXAM_SUBMISSION: MAIN.LEARN + "/exam/submission",
+  LN_EXAM_FORM:MAIN.LEARN + "/exam-form",
+  LN_FORM: MAIN.LEARN + "/form",
+  LN_FORM_CREATE: MAIN.LEARN + "/create-form",
+  LN_FORM_SUBMISSION: MAIN.LEARN + "/form-submission",
+  LN_LESSON: MAIN.LEARN + "/lesson",
+  LN_LESSON_DETAILS: MAIN.LEARN + "/lesson-details",
+  LN_LESSON_CREATE:MAIN.LEARN + "/create-lesson",
+  LN_POLL: MAIN.LEARN + "/poll",
+  LN_SURVAY_ACTIVE: MAIN.LEARN + "/suravy-active",
+  LN_SURVAY_COMPLETE: MAIN.LEARN + "/suravy-complete",
+  LN_POLL_CREATE:MAIN.LEARN + "/poll-create",
+  LN_QUESTIONS: MAIN.LEARN + "/questions",
+  LN_CREATE_QUESTION:MAIN.LEARN + "/questions-create",
+  LN_SKILL: MAIN.LEARN + "/skill",
+  LN_ADD_SKILL: MAIN.LEARN + "/add-skill",
+  LN_SKILL_CREATE: MAIN.LEARN + "/skill-create",
+  LN_SKILL_VIEW: MAIN.LEARN + "skill-view",
+  LN_TASK: MAIN.LEARN + "/task",
+  LN_TIMETABLE: MAIN.LEARN + "/timetable",
+  LN_TIMETABLE_EDIT: MAIN.LEARN + "/timetable-edit",
+  LN_SETTINGS: MAIN.LEARN + "/settings",
+};
+
+//#region Learn Menu
+export const Learn = [
+  {
+    id: 1,
+    title: "Dashbaord",
+    to: Routes.LN_DASHBOARD,
+    icon: "learn/activity",
+  },
+  {
+    id: 2,
+    title: "Clasroom",
+    to: Routes.LN_CLASSROOM,
+    icon: "learn/classroom",
+  },
+
+  {
+    id: 3,
+    title: "Syllabus",
+    to: Routes.LN_SYLLABUS,
+    icon: "learn/syllabus",
+  },
+  {
+    id: 4,
+    title: "Courses",
+    to: Routes.LN_COURSES,
+    icon: "learn/folder",
+  },
+  {
+    id: 5,
+    title: "Assignments",
+    link: Routes.LN_ASSIGNMENTS,
+    icon: "learn/assignment",
+    action: "EXAM_MENU",
+  },
+  {
+    id: 6,
+    title: "Certificate",
+    to: Routes.LN_CERTIFICATE,
+    icon: "learn/certificate",
+  },
+  {
+    id: 7,
+    title: "Exam",
+    link:Routes.LN_EXAM,
+    icon: "learn/exam",
+   action: "EXAM_MENU",
+
+
+  },
+  {
+    id: 8,
+    title: "Form",
+    to: Routes.LN_FORM,
+    icon: "learn/forms",
+  },
+  {
+    id: 9,
+    title: "Lesson",
+    to: Routes.LN_LESSON,
+    icon: "learn/lesson",
+    // action: "EXAM_MENU"
+  },
+  {
+    id: 10,
+    title: "Poll",
+    to: Routes.LN_POLL,
+    icon: "learn/poll",
+  },
+  {
+    id: 11,
+    title: "Questions",
+    link: Routes.LN_QUESTIONS,
+    icon: "learn/questions",
+    action: "EXAM_MENU",
+  },
+  {
+    id: 12,
+    title: "Skill",
+    to: Routes.LN_SKILL,
+    icon: "learn/skills",
+  },
+  {
+    id: 13,
+    title: "Task",
+    to: Routes.LN_TASK,
+    icon: "learn/task",
+  },
+  {
+    id: 19,
+    title: "Timetable",
+    to: Routes.LN_TIMETABLE,
+    icon: "learn/timetable",
+  },
+  {
+    id: 15,
+    title: "Settings",
+    to: "",
+    ficon: "settings",
+    css: "bottom-menu-item",
+    routes: [
+      {
+        id: 22,
+        title: "School S1",
+        to: Routes.LN_SETTINGS,
+      },
+      {
+        id: 23,
+        title: "School S2",
+        to: Routes.LN_SETTINGS,
+      },
+    ],
+  },
+];
+
+export const LearnStudent = [
+  {
+    id: 1,
+    title: "Dashbaord",
+    to: Routes.LN_DASHBOARD,
+    icon: "student/dash",
+  },
+  {
+    id: 2,
+    title: "Clasroom",
+    to: Routes.LN_CLASSROOM,
+    icon: "student/classroom",
+  },
+  {
+    id: 4,
+    title: "Assessment",
+    to: Routes.LN_ASSESMENT,
+    icon: "student/assesment",
+  },
+  {
+    id: 5,
+    title: "Assignments",
+    to: Routes.LN_ASSIGNMENTS,
+    icon: "student/statistics",
+    // action: "EXAM_MENU",
+  },
+
+  {
+    id: 3,
+    title: "Syllabus",
+    to: Routes.LN_SYLLABUS,
+    icon: "student/book",
+  },
+  {
+    id: 19,
+    title: "Timetable",
+    to: Routes.LN_TIMETABLE,
+    icon: "student/event",
+  },
+  {
+    id: 6,
+    title: "Certificates & Grades",
+    to: Routes.LN_CERTIFICATE,
+    icon: "student/cer",
+  },
+  {
+    id: 10,
+    title: "Polls & Surveys",
+    to: Routes.LN_POLL,
+    icon: "student/polling",
+  },
+
+
+  {
+    id: 12,
+    title: "Skillset",
+    to: Routes.LN_SKILL,
+    icon: "student/idea",
+  },
+];
+//#endregion

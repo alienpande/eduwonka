@@ -1,0 +1,116 @@
+[{
+        "id": 1,
+        "standard": "LKG",
+        "name": "Lower Kinder Garden",
+        "sections": [{
+                "id": 11,
+                "name": "A",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 12,
+                "name": "B",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 13,
+                "name": "C",
+                "students": "30",
+                "teachers": "6"
+            }
+        ],
+        "subjects": []
+    },
+    {
+        "id": 2,
+        "standard": "UKG",
+        "name": "Upper Kinder Garden",
+        "sections": [{
+                "id": 11,
+                "name": "A",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 12,
+                "name": "B",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 13,
+                "name": "C",
+                "students": "30",
+                "teachers": "6"
+            }
+        ],
+        "subjects": []
+    },
+    {
+        "id": 3,
+        "standard": "1st",
+        "name": "1st Standard",
+        "sections": [{
+                "id": 11,
+                "name": "A",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 12,
+                "name": "B",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 13,
+                "name": "C",
+                "students": "30",
+                "teachers": "6"
+            }
+        ],
+        "subjects": []
+    },
+    {
+        "id": 4,
+        "standard": "2nd",
+        "name": "2nd Standard",
+        "sections": [{
+                "id": 11,
+                "name": "A",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 12,
+                "name": "B",
+                "students": "30",
+                "teachers": "6"
+            },
+            {
+                "id": 13,
+                "name": "C",
+                "students": "30",
+                "teachers": "6"
+            }
+        ],
+        "subjects": [{
+                "id": 1,
+                "name": "Mathematics",
+                "isSelected": true
+            },
+            {
+                "id": 2,
+                "name": "Science",
+                "isSelected": true
+            },
+            {
+                "id": 3,
+                "name": "Hindi",
+                "isSelected": true
+            }
+        ]
+    }
+]

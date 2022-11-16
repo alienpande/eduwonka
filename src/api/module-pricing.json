@@ -1,0 +1,65 @@
+[{
+        "id": 1,
+        "name": "School Module",
+        "icon": "main/school",
+        "price": 99,
+        "discountedPrice": 0,
+        "currency": "$",
+        "duration": "/month",
+        "trailText": "3 month of free trial",
+        "features": [
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Finance Module",
+        "icon": "main/finance",
+        "price": 199,
+        "discountedPrice": 0,
+        "currency": "$",
+        "duration": "/month",
+        "trailText": "3 month of free trial",
+        "features": [
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Learn Module",
+        "icon": "main/learn",
+        "price": 199,
+        "discountedPrice": 0,
+        "currency": "$",
+        "duration": "/month",
+        "trailText": "3 month of free trial",
+        "features": [
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Main HQ Module",
+        "icon": "main/hq",
+        "price": 299,
+        "discountedPrice": 0,
+        "currency": "$",
+        "duration": "/month",
+        "trailText": "3 month of free trial",
+        "features": [
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+        ]
+    }
+]

@@ -1,0 +1,20 @@
+export const Routes = {
+  INSTITUTE_ONBOARD: "/on-boarding/institute-on-boarding",
+  INSTITUTE_DASHBOARD: "/on-boarding/institute-dashboard",
+  LIST_OF_CAMPUS: "/on-boarding/list-of-campus",
+  ONBOARD_CAMPUS: "/on-boarding/onboard-campus",
+  INVITE_PEOPLE: "/on-boarding/invite-people",
+  ADMIN_ACCESS: "/on-boarding/admin-access",
+  CAMPUS_BASIC_DETAIL: "/on-boarding/campus-basic-details",
+
+  LEVEL_CREATION_STEP1: "/on-boarding/level-creation-step-1/:id",
+  LEVEL_CREATION_STEP2: "/on-boarding/level-creation-step-2/:id",
+  STANDARD_SEQUENCING: "/on-boarding/StandardSequening/:id",
+  SUBJECT_CREATION: "/on-boarding/subject-creation",
+  ASSIGN_SUBJECT: "/on-boarding/assign-subject",
+  ATTENDANCE_AND_EXAM: "/on-boarding/attendance-and-exam",
+  WORKING_HOURS: "/on-boarding/working-hours",
+  DEPARTMENT_DESIGNATION: "/on-boarding/department-designation",
+  BASIC_FINANCIAL: "/on-boarding/basic-financial-details",
+  PAY_SLIP_LINE_ITEM: "/on-boarding/payslip-line-item",
+};

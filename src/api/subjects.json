@@ -1,0 +1,36 @@
+[{
+        "id": 1,
+        "name": "Mathematics",
+        "isSelected": false
+    },
+    {
+        "id": 2,
+        "name": "Science",
+        "isSelected": false
+    },
+    {
+        "id": 3,
+        "name": "Hindi",
+        "isSelected": false
+    },
+    {
+        "id": 4,
+        "name": "English",
+        "isSelected": false
+    },
+    {
+        "id": 5,
+        "name": "Social Studies",
+        "isSelected": false
+    },
+    {
+        "id": 6,
+        "name": "Sanskrit",
+        "isSelected": false
+    },
+    {
+        "id": 7,
+        "name": "French",
+        "isSelected": false
+    }
+]

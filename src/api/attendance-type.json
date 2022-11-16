@@ -1,0 +1,19 @@
+[{
+        "id": 1,
+        "title": "Class-wise Attendance",
+        "key": "CLASSWISE",
+        "description": "The attendance will be taken at the beginning of every class in your institution"
+    },
+    {
+        "id": 2,
+        "title": "1 time Attendance",
+        "key": "ONETIME",
+        "description": "The attendance will be taken beginning of the day in your institution"
+    },
+    {
+        "id": 3,
+        "title": "2 time Attendance",
+        "key": "TWOTIME",
+        "description": "The attendance will be taken beginning and the ending of the day in your institution"
+    }
+]

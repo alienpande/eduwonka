@@ -1,0 +1,57 @@
+[{
+        "id": 1,
+        "range": "90-100",
+        "min": 91,
+        "max": 100,
+        "grade": "A+",
+        "order": 1
+    },
+    {
+        "id": 2,
+        "range": "80-90",
+        "min": 81,
+        "max": 90,
+        "grade": "A",
+        "order": 2
+    },
+    {
+        "id": 3,
+        "range": "70-80",
+        "min": 71,
+        "max": 80,
+        "grade": "B+",
+        "order": 3
+    },
+    {
+        "id": 4,
+        "range": "60-70",
+        "min": 61,
+        "max": 70,
+        "grade": "B",
+        "order": 4
+    },
+    {
+        "id": 5,
+        "range": "50-60",
+        "min": 51,
+        "max": 60,
+        "grade": "C",
+        "order": 5
+    },
+    {
+        "id": 6,
+        "range": "35-50",
+        "min": 36,
+        "max": 50,
+        "grade": "D",
+        "order": 6
+    },
+    {
+        "id": 7,
+        "range": "0-35",
+        "min": 0,
+        "max": 35,
+        "grade": "E",
+        "order": 7
+    }
+]
