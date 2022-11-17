@@ -6,8 +6,8 @@
       :key="i.id"
     >
       <el-row>
-        <el-col class="lbl-lite" :span="4"> Standard Name </el-col>
-        <el-col class="lbl-lite" :span="3"> Section </el-col>
+        <el-col class="lbl-lite" :span="window.width > 767 ? 4 : 5"> Standard Name </el-col>
+        <el-col class="lbl-lite" :span="window.width > 767 ? 3 : 6"> Section </el-col>
         <el-col :span="4">
           <e-more-menu
             @edit="editStandard(i)"
@@ -17,13 +17,12 @@
           </e-more-menu>
         </el-col>
       </el-row>
-
-      <el-row class="mt30">
-        <el-col :span="4"> {{ i.name }} </el-col>
-        <el-col :span="3"> {{ getSections(i) }} </el-col>
+      <el-row class="mt25">
+        <el-col :span="window.width > 767 ? 4 : 5"> {{ i.name }} </el-col>
+        <el-col :span="window.width > 767 ? 3 : 6"> {{ getSections(i) }} </el-col>
         <e-button
           class="float-right"
-          :span="4"
+          :span="window.width > 767 ? 4 : 11"
           plain
           label="+ Add Sections"
           @click="addSections(i.sections)"
@@ -33,12 +32,14 @@
   </div>
 </template>
 <script>
+import screenSize from '@/mixins/screenSize'
 export default {
   props: {
     standardData: {
       type: Array
     }
   },
+  mixins: [screenSize],
   data() {
     return {};
   },
