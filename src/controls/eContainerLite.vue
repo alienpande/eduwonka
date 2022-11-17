@@ -37,7 +37,7 @@
         ></el-button>
       </el-col>
     </el-row>
-    <el-main class="body" :style="window.width > 767 ? '' : 'padding: 40px 60px !important;'">
+    <el-main class="body" :style="window.width > 767 ? '' : 'padding: 40px 10px !important;'">
       <slot />
       <el-row class="text-right footer-top-border" v-if="showFooter">
         <e-button
