@@ -6,7 +6,7 @@
       :key="index + 1"
     >
       <el-row :gutter="20">
-        <el-col :span="window.width > 767 ? 6 : 24">
+        <el-col :span="window.width > 767 ? 9 : 24">
           <el-row>
             <el-col :span="3"> <e-svg :icon="m.icon" /></el-col>
             <el-col :span="21">
@@ -41,7 +41,7 @@
           </el-row>
         </el-col>
         <el-col
-          :span="window.width > 767 ? 18 : 24"
+          :span="window.width > 767 ? 15 : 24"
           class="module-pricing-right-side"
         >
           <el-row :gutter="50">
@@ -154,7 +154,6 @@ export default {
     border-left: 0px;
     border-top: 1px solid #ececec;
     margin-top: 20px;
-    padding: 10px;
   }
 }
 </style>

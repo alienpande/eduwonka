@@ -34,7 +34,7 @@
           <el-row :gutter="gutter" v-if="!formInnerBorder" class="form-inputs-container">
             <slot />
           </el-row>
-          <div style="padding: 0px 50px" v-if="formInnerBorder">
+          <div :style="window.width > 767 ? 'padding: 0px 50px' : 'padding: 0px 10px;'" v-if="formInnerBorder">
             <div
               :class="innerFormCss"
               class="institute-onboard-form"
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import screenSize from '@/mixins/screenSize'
 export default {
   props: {
     model: {
@@ -125,6 +126,7 @@ export default {
       deafult: "30px 0px 0 0px"
     }
   },
+  mixins: [screenSize],
   data() {
     return {};
   },
@@ -151,6 +153,8 @@ export default {
   .form-container{
     padding: 30px 0px 0px 0px !important;
   }
-
+  .institute-onboard-form{
+    padding : 30px !important;
+  }
 }
 </style>

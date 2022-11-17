@@ -30,6 +30,7 @@
         prop="standard_label"
         v-model="account_settings.standard_label"
         rules="required"
+        class="mb20"
       />
 
       <e-input label="Term Used for Division(eg Section)"
@@ -38,10 +39,11 @@
 
       <e-button
         @click="handleSubmit(handleClick)"
+        class="mt20"
         label="Proceed"
         type="primary"
       />
-      <e-spacer height="350px" />
+      <e-spacer height="370px" />
     </e-form>
     </ValidationObserver>
   </e-container-lite>
