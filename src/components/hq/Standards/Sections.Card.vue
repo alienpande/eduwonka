@@ -1,5 +1,5 @@
 <template>
-  <el-col :span="span" :offset="offset">
+  <el-col :span="window.width > 767 ? span : 24" :offset="offset">
     <p class="label ml20" v-html="title"></p>
     <el-row
       :gutter="20"
@@ -64,8 +64,10 @@
 </template>
 <script>
 import draggable from "vuedraggable";
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { draggable },
+  mixins: [screenSize],
   props: {
     border: {
       type: Boolean,

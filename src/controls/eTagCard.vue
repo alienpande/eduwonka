@@ -1,5 +1,5 @@
 <template>
-  <el-col :span="span">
+  <el-col :span="window.width > 767 ? span : 12">
     <div
       style="
         border: 1px solid var(---4d4f5c);
@@ -28,7 +28,9 @@
   </el-col>
 </template>
 <script>
+import screenSize from '@/mixins/screenSize'
 export default {
+  mixins: [screenSize],
   props: {
     label: {
       type: String,

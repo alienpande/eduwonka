@@ -12,11 +12,11 @@
     @next="handleSubmit(handleClick(exam))"
     >
     <el-col
-      :span="7"
+      :span="window.width > 767 ? 7 : 20"
       v-for="(item, index) in obj"
       v-bind:item="item"
       v-bind:key="index"
-      style="background: #fff; border-radius: 4px; margin: 20px"
+      style="background: #fff; border-radius: 4px; margin: 20px 0px"
     >
       <e-more-menu hideEdit class="text-right" @delete="deleteSection(item)">
       </e-more-menu>
@@ -26,12 +26,14 @@
         placeholder="Type here"
         @input="handleExam(item)"
         rules="required"
+        class="mb20"
       />
       <e-input
         label="occurence"
         v-model="item.occurence"
         placeholder="2"
         rules="required"
+        class="mb20"
         @input="handleExam(item)"
       />
     </el-col>
@@ -40,12 +42,14 @@
 </template>
 
 <script>
+import screenSize from '@/mixins/screenSize'
 export default {
   props: {
     obj: {
       type: Array
     }
   },
+  mixins: [screenSize],
   data() {
     return {
       rules: {},

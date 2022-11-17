@@ -41,14 +41,15 @@
       <slot />
       <el-row class="text-right footer-top-border" v-if="showFooter">
         <e-button
-          :span="window.width > 767 ? 5 : 15"
+          :span="window.width > 767 ? 5 : 16"
           :offset="window.width > 767 ? 17 : 0"
+          class="mr10"
           type="link"
           :label="saveBtnText"
           @click="$emit('save', $event)"
         ></e-button>
         <e-button
-          :span="window.width > 767 ? 2 : 9"
+          :span="window.width > 767 ? 2 : 8"
           :width="nextBtnWidth"
           :label="nextBtnText"
           @click="$emit('next', $event)"

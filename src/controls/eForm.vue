@@ -7,13 +7,13 @@
     <div class="form-container" :style="{padding: paddingContainer}">
       <el-form :rules="rules" :model="model">
         <el-row >
-          <el-col :span="showBtn ? 20 : 24" v-if="heading || subHeading">
+          <el-col :span="showBtn ? window.width > 767 ? 20 : 16 : 24" v-if="heading || subHeading">
             <p class="heading" style="padding-left: 1.5rem !important;">{{ heading }}</p>
             <p class="subHeading" v-if="subHeading">{{ subHeading }}</p>
           </el-col>
           <e-button
             class="right"
-            :span="showBtn ? 4 : 0"
+            :span="showBtn ? window.width > 767 ? 4 : 8 : 0"
             :label="btnText"
             :icon="btnIcon"
             @click="$emit('btnClick', $event)"
