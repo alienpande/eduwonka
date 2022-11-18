@@ -2597,7 +2597,8 @@ main.el-main.body > .heading:first-child{
 
   /* fixing pagination */
   .pagination-container .el-pagination__jump{
-    width: 37%;
+    width: 23%;
+    margin-left: 0;
   }
   .pagination-container .el-pagination__sizes{
     margin-right: 0px;
