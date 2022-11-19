@@ -2581,6 +2581,10 @@ main.el-main.body > .heading:first-child{
   .form-last-buttons{
     flex-direction: column;
     row-gap: 15px;
+    display: block;
+  }
+  .form-last-buttons > div{
+    width: 170px !important;
   }
   /* fixing all dialogs/popups for Mobile */
   .el-dialog{
@@ -2596,8 +2600,12 @@ main.el-main.body > .heading:first-child{
   }
 
   /* fixing pagination */
+  .pagination-container {
+    padding: 10px 2px;
+  }
   .pagination-container .el-pagination__jump{
-    width: 37%;
+    width: 23%;
+    margin-left: 0;
   }
   .pagination-container .el-pagination__sizes{
     margin-right: 0px;
