@@ -1,7 +1,7 @@
 <template>
   <div
     @click="$emit('cliks', book)"
-    style="display: inline-block; margin: 18px 34px; cursor: pointer"
+    style="display: inline-block; cursor: pointer; margin-bottom: 10px;"
   >
     <el-card
       shadow="none"
@@ -10,21 +10,22 @@
         height: 12rem;
         box-shadow: 0px 3px 15px #0000000d;
         border-radius: 10px;
+        margin: 0 10px;
       "
     >
-      <el-col :span="6">
+      <el-col :span="window.width > 500 ? 6 : 5">
         <img v-if="book.attachment"
-          style="width: 109px; height: 143px"
+          :style="window.width > 500 ? 'width: 109px; height: 143px' : 'width: 80px; float: right;'"
           :src="base_url + book.attachment.file_url"
           alt=""
         />
         <img v-else
-          style="width: 109px; height: 143px"
+          :style="window.width > 500 ? 'width: 109px; height: 143px' : 'width: 80px; float: right;'"
           src="@/assets/images/book.png"
           alt=""
         />
       </el-col>
-      <el-col :span="15" :offset="2">
+      <el-col :span="15" :offset="window.width > 500 ? 2 : 1">
         <el-row>
           <el-col :span="19">
             <div style="color: #000000cc" class="fs-16 f-500">
@@ -96,9 +97,11 @@
   </div>
 </template>
 <script>
+import screenSize from '@/mixins/screenSize'
 export default {
   // props: ["name", "id", "status", "bookmark","author","publisher"],
   props: ["book"],
+  mixins: [screenSize],
   data() {
     return {
       base_url: process.env.VUE_APP_BASE_API

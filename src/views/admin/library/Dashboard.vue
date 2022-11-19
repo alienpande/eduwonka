@@ -5,7 +5,7 @@
         Dashboard <span>Welcome Back!</span>
       </el-col>
     </el-row>
-    <div class="library-dash-See-more" style="padding: 40px; overflow: auto; height: 50vh">
+    <div class="library-dash-See-more" :style="window.width > 767 ?'padding: 40px; overflow: auto; height: 50vh' : 'padding: 40px 20px; overflow: auto; height: 50vh'">
       <el-row>
         <el-col :span="2">
           <div style="color: #354052; text-transform: capitalize" class="fs-20 f-600">
@@ -20,11 +20,10 @@
       <dashboard-chart v-if="issueReturns.length > 0" :issueReturns="issueReturns" /><br /><br />
       <div v-for="(detail,i) in dashboardDetail" :key="i">
         <h4>{{ detail.title }}</h4>
-
         <div class="library-dash-books" style="box-shadow: 0px 1px 4px #15223214;border-radius: 6px;background: white;">
           <div style="padding: 30px;height: 40rem;overflow: hidden;">
-            <el-row style="display: flex; flex-wrap: wrap; justify-content: center;padding:0 10rem">
-              <el-col :span="10" style="color: #000000cc; font-size: 16px">
+            <el-row :style="window.width > 767 ? 'display: flex; flex-wrap: wrap; justify-content: center; padding:0 10rem' : 'padding: 0px'">
+              <el-col :span="window.width > 767 ? 10 : 24" style="color: #000000cc; font-size: 16px">
                 {{ detail.sub }}
               </el-col>
               <!-- <el-col :span="2" :offset="12">
@@ -53,8 +52,10 @@
 import dashboardChart from '@/components/library/dashboardChart.vue'
 import { dispatchGraphql } from "@/api/dispatcher"
 import { mapMutations } from "vuex"
+import screenSize from '@/mixins/screenSize'
 export default {
   components:{ dashboardChart },
+  mixins: [screenSize],
   data: () => ({
     filter: [{ text: "Year" }, { text: "Standard 2" }, { text: "Standard 3" }],
     books: [],

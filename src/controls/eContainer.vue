@@ -6,7 +6,7 @@
       </el-col>
       <e-button
         class="btn"
-        :span="4"
+        :span="window.width > 767 ? 4 : 24"
         v-show="btnText"
         :icon="btnIcon"
         :label="btnText"
@@ -31,8 +31,10 @@
 <script>
 import { mapGetters } from "vuex";
 import pageNavBar from "../components/pageNavBar.vue";
+import screenSize from "@/mixins/screenSize"
 export default {
   components: { pageNavBar },
+  mixins: [screenSize],
   name: "eContainer",
   props: {
     hideHeader: {

@@ -171,23 +171,19 @@
       </el-card>
       <br />
       <br />
-      <el-row style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-        <el-col style="float: right" :span="9">
+      <el-row style="border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 30px;">
+        <el-col style="float: right" :span="window.width > 500 ? 9 : 24">
           <e-button
             :span="15"
             label="Cancel"
-            width="180"
-            css="cancel_btn"
+            css="cancel_btn float-right"
             type="default"
-            class="p-45"
           ></e-button>
           <e-button
             :span="8"
             label="Create Book"
             @click="handleSubmit(createBook())"
-            width="180"
             css="float-right"
-            class="p-45"
           ></e-button>
         </el-col>
       </el-row>
@@ -199,8 +195,10 @@
 import { dispatchGraphqlQuery, dispatchGraphqlMutation } from "@/api/dispatcher"
 import EduwonkaAvatarUploader from '@/components/EduwonkaUploader/avatar.vue'
 import logo from '@/assets/images/book1.png'
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { EduwonkaAvatarUploader },
+  mixins: [screenSize],
   data: () => ({
     rules: {},
     req: {},

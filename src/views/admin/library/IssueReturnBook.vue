@@ -4,11 +4,11 @@
       <el-tabs class="floatTabHeader" v-model="activeName">
         <el-tab-pane label="Issue Book" name="books">
           <el-row>
-            <el-col style="color: #000000cc" class="heading-text f-500" :span="18">
+            <el-col style="color: #000000cc" class="heading-text f-500" :span="window.width > 767 ? 18 : 14">
               Below is the list of books that are available for reservation or
               issue
             </el-col>
-            <el-col :span="4" :offset="2">
+            <el-col :span="4" :offset="window.width > 767 ? 2 : 1">
               <e-button width="160" @click="$router.push($url.LI_SCAN_TO_SEARCH)" label="Scan to search"></e-button>
             </el-col>
           </el-row>
@@ -76,6 +76,7 @@
   </div>
 </template>
 <script>
+import screenSize from '@/mixins/screenSize'
 import {dispatchGraphql, dispatchGraphqlQuery} from '@/api/dispatcher'
 // import { getId } from '@/util/auth'
 import Pagination from '@/components/Pagination'
@@ -87,6 +88,7 @@ export default {
     EsPagination,
     DropFilter
   },
+  mixins: [screenSize],
   data: () => ({
     activeName: "books",
     issueBook: [],
