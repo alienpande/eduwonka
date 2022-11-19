@@ -1,6 +1,6 @@
 <template>
     <el-row :gutter="20" style="padding: 20px 0px 20px 0px;margin: 0px 0px 5px 0px;background: white;">
-      <el-col v-if="standards.length > 0" :span="5" :offset="1" class="dropdown-tab">
+      <el-col v-if="standards.length > 0" :span="7" :offset="1" class="dropdown-tab">
         <el-dropdown @command="handleStandard">
           <span class="el-dropdown-link primary-text" primary>
             Standard<i class="el-icon-arrow-down el-icon--right"></i>
@@ -11,7 +11,7 @@
         </el-dropdown>
         <!-- <e-dropdown :list="standard" @input="handleFilter" primary class="text" /> -->
       </el-col>
-      <el-col v-if="subjects.length > 0" :span="5" :offset="1" class="dropdown-tab">
+      <el-col v-if="subjects.length > 0" :span="6" :offset="1" class="dropdown-tab">
         <el-dropdown @command="handleSubject">
           <span class="el-dropdown-link primary-text" primary>
             Subject<i class="el-icon-arrow-down el-icon--right"></i>
