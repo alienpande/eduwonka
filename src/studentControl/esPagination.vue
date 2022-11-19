@@ -14,7 +14,7 @@
       :page-size.sync="pageSize"
       :layout="changedLayout"
       :page-sizes="pageSizes"
-      :total="total"
+      :total="window.width > 767 ? total : 1"
       v-bind="$attrs"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
@@ -24,9 +24,10 @@
 
 <script>
 // import { scrollTo } from '@/util/scroll-to'
-
+import screenSize from '@/mixins/screenSize'
 export default {
   name: 'Pagination',
+  mixins: [screenSize],
   props: {
     total: {
       required: true,
