@@ -17,7 +17,7 @@
           {{ total }} tags
         </el-col>
 
-        <el-col style="padding-left: 10px" :span="1" :offset="15">
+        <el-col style="padding-left: 10px" :span="1" :offset="window.width > 767 ? 15 : 10">
           <e-button
             icon="el-icon-search"
             :plain="true"
@@ -78,8 +78,10 @@ import createTag from "@/components/knowledge/createTag.vue"
 import { dispatchGraphql , dispatchGraphqlMutation , dispatchGraphqlQuery } from "@/api/dispatcher"
 import { getId } from '@/util/auth'
 import esPagination from '@/studentControl/esPagination'
+import screenSize from "@/mixins/screenSize";
 export default {
   components: { tagsDetail, createTag, esPagination },
+  mixins: [screenSize],
   data:() => ({
     tagId: '',
     tagData: [],
