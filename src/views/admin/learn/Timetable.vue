@@ -1,7 +1,7 @@
 <template>
 <div class="about">
     <e-container pageTitle="Time Table" :btnIcon="selectedStandard ? 'el-icon-edit' : ''" :btnText="selectedStandard ? 'Edit' : ''" @btnClick="$router.push($url.LN_TIMETABLE_EDIT + '/' + selectedStandard)">
-      <div style="margin-bottom: 100px; margin-left: 360px">
+      <div :style="{'margin-left': window.width > 767 ? '360px' : '0'}" style="margin-bottom: 100px; margin-left: 360px">
         <e-select class="select-dropdown" style="margin-left: 25px" :span="10" label="Choose Standard" placeholder="Select Standard" :options="standards" :optionName="'name'" :valueKey="'id'" @visible-change="setStandard" />
       </div><br>
       <div style="display: flex;overflow: scroll;height: 69vh;width: 81vw;">
@@ -63,7 +63,10 @@
 <script>
 import { dispatchGraphql, dispatchGraphqlQuery } from "@/api/dispatcher"
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
+
 export default {
+  mixins: [screenSize],
   data: () => ({
     weekDays: [],
     timings: [],
