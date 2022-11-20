@@ -19,7 +19,7 @@
         <div class="pd-x-30 pd-10 pd-b-30">
           <el-card shadow="none" style="background: rgba(248, 243, 238, 0.35); " class="rounded-08 text-center classroom-right__slide">
             <el-row style="opacity: 0.8">
-              <el-col :span="12" style="border-right: 2px solid #fcdfbd;border-bottom: 2px solid #fcdfbd;padding: 10px;">
+              <el-col :span="12" :style="{ height: window.width > 767 ? 'auto' : '85px' }" style="border-right: 2px solid #fcdfbd;border-bottom: 2px solid #fcdfbd;padding: 10px;">
                 <span>Standard</span> <br />
                 <span style="color: rgb(0, 0, 0); font-weight: bold">{{ details.standard.name }}</span>
               </el-col>
@@ -76,8 +76,11 @@
 import EImgName from "../../../controls/table/eImgName.vue"
 import RightSideBar from "../rightSideBar.vue"
 import { dispatchGraphql } from '@/api/dispatcher'
+import screenSize from '@/mixins/screenSize'
+
 export default {
   components: { RightSideBar, EImgName },
+  mixins: [screenSize],
   props: {
     details: {
         type: Object
