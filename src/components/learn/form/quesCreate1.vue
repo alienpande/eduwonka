@@ -4,29 +4,29 @@
     <el-row :gutter="20" class="form-type-3">
       <el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18" :offset="3">
         <br>
-          <el-col :span="8"><el-button style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 150px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('choose-single')">Choose One</el-button></el-col>
-          <el-col :span="8"><el-button style="font-size: 14px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 150px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('choose-multiple')"><i class="el-icon-success" /> Choose Multiple</el-button></el-col>
-          <el-col :span="8"><el-button style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 150px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('drop-down')"><i class="el-icon-caret-bottom" /> Drop Down</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('choose-single')">Choose One</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 14px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('choose-multiple')"><i class="el-icon-success" /> Choose Multiple</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('drop-down')"><i class="el-icon-caret-bottom" /> Drop Down</el-button></el-col>
         <br>
       </el-col>
       <el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18" :offset="6">
         <br>
-          <el-col :span="8"><el-button style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 150px; height: 50px; margin-bottom: 5px;"  class="gray-btn rounded-10" size="" @click="formFieldSelect('short-answer')"><i class="el-icon-s-fold" /> Short Answer</el-button></el-col>
-          <el-col :span="8"><el-button style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 150px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('long-answer')"><i class="el-icon-s-fold" /> Long Answer</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;"  class="gray-btn rounded-10" size="" @click="formFieldSelect('short-answer')"><i class="el-icon-s-fold" /> Short Answer</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('long-answer')"><i class="el-icon-s-fold" /> Long Answer</el-button></el-col>
           <!-- <el-col :span="8"><el-button style="font-size: 20px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 200px; height: 60px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('opinion-scale')"><i class="el-icon-s-data" /> Opinion Scale</el-button></el-col> -->
         <br>
       </el-col>
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="14" :offset="6"><hr class="style1"></el-col>
       <el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18" :offset="6">
         <br>
-          <el-col :span="8"><el-button style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 150px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('add-image')"><i class="el-icon-picture" /> Add Image</el-button></el-col>
-          <el-col :span="8"><el-button style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 150px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('add-video')"><i class="el-icon-video-camera-solid" /> Add video</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('add-image')"><i class="el-icon-picture" /> Add Image</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 16px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('add-video')"><i class="el-icon-video-camera-solid" /> Add video</el-button></el-col>
         <br>
       </el-col>
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="14" :offset="6"><hr class="style1"></el-col>
       <el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18" :offset="7">
         <br>
-          <el-col :span="8"><el-button style="font-size: 17px; display: flex; border: 2px solid #000000; border-radius: 10px; width: 250px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('upload-attachment')"><i class="el-icon-document-add" /> Upload Documents</el-button></el-col>
+          <el-col :span="8"><el-button :style="{ width: window.width > 767 ? '150px' : '100%' }" style="font-size: 17px; display: flex; border: 2px solid #000000; border-radius: 10px; height: 50px; margin-bottom: 5px;" class="gray-btn rounded-10" size="" @click="formFieldSelect('upload-attachment')"><i class="el-icon-document-add" /> Upload Documents</el-button></el-col>
         <br>
       </el-col>
     </el-row>
@@ -50,13 +50,16 @@
     </el-row>
   </div>
 </template>
+
 <script>
+import screenSize from '@/mixins/screenSize'
   export default {
     data() {
       return {
         form_type: ''
       }
     },
+    mixins: [screenSize],
     methods: {
       formFieldSelect: function(e) {
         this.form_type = e
