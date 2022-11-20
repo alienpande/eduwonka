@@ -24,7 +24,7 @@
         <div style="opacity: 0.8; font-weight: 600; padding: 14px 0">
           {{ sub_topics.length }} Subtopics
         </div>
-        <div style="padding: 0 10px 1.5rem;width:50%" >
+        <div style="padding: 0 10px 1.5rem;" :style="{ width: window.width > 767 ? '50%' : '100%' }" >
           <VueSlickCarousel v-bind="settings" :arrows="false" :dots="true">
             <div v-for="i in sub_topics" :key="i" class="cousole-wrap">
               <div class="syllabus-courosle" v-for="i in sub_topics" :key="i">
@@ -43,10 +43,12 @@
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
 import { dispatchGraphql  } from '@/api/dispatcher'
+import screenSize from '@/mixins/screenSize'
 
 export default {
   props:['title','Alloted','Takenby','topic','topic_id'],
   components: { VueSlickCarousel },
+  mixins: [screenSize],
   data: () => ({
     activeName: "activeSubtopic",
     msg: "Lorem ipsum dolor sit amet consectetur",
