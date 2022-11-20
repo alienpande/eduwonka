@@ -4,14 +4,14 @@
       <div class="remove-padding" style="color: #222222; font-weight: 600; font-size: 16px;padding-right: 147px;">
         {{ question.name }}
       </div>
-      <div style="display: flex; margin-top: 30px">
+      <div :style="{ display: window.width > 767 ? 'flex' : 'grid' }" style="display: flex; margin-top: 30px">
         <div style="border: 1px solid #bc6c42; border-radius: 13px; background: white; display: inline; padding: 5px 10px; margin-right: 10px; color: #bc6c42; font-size: 12px; font-weight: 500;">
           Type : {{ getType(question.question_type) }}
         </div>
-        <div style="border: 1px solid #bc6c42; border-radius: 13px; background: white; display: inline; padding: 5px 10px; margin-right: 10px; color: #bc6c42; font-size: 12px; font-weight: 500;">
+        <div :style="{'margin-top': window.width > 767 ? '0px' : '5px' }" style="border: 1px solid #bc6c42; border-radius: 13px; background: white; display: inline; padding: 5px 10px; margin-right: 10px; color: #bc6c42; font-size: 12px; font-weight: 500;">
           Difficulty : {{ question.difficulty_level }}
         </div>
-        <div style="border: 1px solid #bc6c42; border-radius: 13px; background: white; display: inline; padding: 5px 10px; margin-left: 5px; color: #bc6c42; font-size: 12px; font-weight: 500;">
+        <div :style="{'margin-left': window.width > 767 ? '5px' : '0px', 'margin-top': window.width > 767 ? '0px' : '5px' }" style="border: 1px solid #bc6c42; border-radius: 13px; background: white; display: inline; padding: 5px 10px; color: #bc6c42; font-size: 12px; font-weight: 500;">
           Used in : 20 quick tests
         </div>
       </div>
@@ -24,8 +24,11 @@ width: auto !important;
 }
 </style>
 <script>
+import screenSize from '@/mixins/screenSize'
+
   export default {
-    props: {
+  mixins: [screenSize],
+  props: {
       questions: {
         type: Array
       }
