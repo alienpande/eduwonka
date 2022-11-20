@@ -64,10 +64,10 @@
         <div style="display: inline-block"></div>
       </el-col> -->
       <!-- <el-col :span="4"> -->
-        <e-button :span="4" label="Cancel" :plain="true" width="140" css="float-right cancel_btn " class="p-45" />
+        <e-button :span="4" label="Cancel" :plain="true" :width="window.width > 767 ? 140 : 180" css="float-right cancel_btn " class="p-45" />
       <!-- </el-col> -->
       <!-- <el-col :span="4"> -->
-        <e-button :span="10" label="Create a classroom" width="220" css="float-right" class="p-45" @click="createAudience" />
+        <e-button :span="10" label="Create a classroom" :width="window.width > 767 ? 220 : 200" css="float-right" class="p-45" @click="createAudience" />
       <!-- </el-col> -->
     </el-row>
   </div>
@@ -76,8 +76,11 @@
 import selectionCard from "@/components/school/EventCalender/selectionCard.vue"
 import { mapGetters } from "vuex";
 import { dispatchGraphql } from "@/api/dispatcher";
+import screenSize from '@/mixins/screenSize'
+
 export default {
   components: { selectionCard },
+  mixins: [screenSize],
   props: {
     tabOneData: {
       type: Object,
