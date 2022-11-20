@@ -121,7 +121,7 @@ export default {
 .pagination-container {
   background: #fff;
   border: 1px solid #e0e0e0;
-  padding: 10px;
+  padding: 10px 2px;
   border-top: 0px;
 }
 
