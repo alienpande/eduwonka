@@ -321,6 +321,7 @@ export default {
   .searchCard {
     padding: 15px 5px !important;
     justify-content: space-between;
+    column-gap: 0;
   }
   .button-margin {
     margin-right: 35px;
