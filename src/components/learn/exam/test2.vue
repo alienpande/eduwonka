@@ -10,7 +10,7 @@
             Q {{ question.position }}
           </div>
         </el-col>
-        <el-col :span="16" :style="'border: 1px solid #fcdfbd;padding: 15px;border-right: 0;border-bottom: 0;opacity: 0.6;font-size: 14px;'">
+        <el-col :span="16" :style="{width: window.width > 767 ? 'auto' : '55%', border: '1px solid #fcdfbd', padding: '15px', 'border-right': 0, 'border-bottom': 0, opacity: 0.6, 'font-size': '14px'}">
           <div style="width: auto">
             {{ question.name }}
           </div>
@@ -54,7 +54,7 @@
           <e-button @click="dialog = true" class="btn" :span="4" icon="el-icon-plus" label="Add Question" />
         </el-col>
       </el-row>
-      <div style="margin: 40px 120px">
+      <div :style="{margin: window.width > 767 ? ['40px 120px'] : ['40px 100px']}">
         <div :style="'color: #4d4f5c;font-size: 20px;font-weight: 500;display: inline;margin-right: 10px;'">
           Total
         </div>
@@ -73,6 +73,8 @@
 </template>
 <script>
 import { dispatchGraphql } from "@/api/dispatcher";
+import screenSize from '@/mixins/screenSize'
+
 export default {
   props: {
     quickTest: {
@@ -80,6 +82,7 @@ export default {
       default: null,
     },
   },
+  mixins: [screenSize],
   data: () => ({
     question: {},
     total_marks: "",
