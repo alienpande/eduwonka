@@ -141,3 +141,12 @@ import Pagination from '@/components/Pagination'
     }
   }
 </script>
+
+<style scoped>
+@media only screen and (max-width: 767px) {
+  .searchCard {
+    padding: 15px 5px;
+    column-gap: 0;
+  }
+}
+</style>
