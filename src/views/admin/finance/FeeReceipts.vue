@@ -2,8 +2,8 @@
   <div class="about">
     <e-container class="main-body-container finance-fee-receipt" pageTitle="Fee Receipts" btnIcon="el-icon-plus" btnText="Add Fee" @btnClick="$router.push($url.FI_FEE_RECEIPTS_DETAILS)">
       <div class="sub-headers"></div>
-      <el-row class="sub-headers-menu" v-if="!searchBar" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
-        <el-col :span="5" :offset="1">
+      <el-row class="sub-headers-menu" v-if="!searchBar" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
+        <el-col :span="window.width > 500 ? 5 : 7" :offset="window.width > 500 ? 1 : 0">
           <el-dropdown @command="handlePrice">
             <span class="el-dropdown-link primary-text" primary>
               Sort By Price<i class="el-icon-arrow-down el-icon--right" />
@@ -13,7 +13,7 @@
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
-        <el-col :span="4" style="padding-left: 35px">
+        <el-col :span="window.width > 500 ? 4 : 6" :style="window.width > 500 ? 'padding-left: 35px' : ''">
           <el-dropdown @command="handleSection">
             <span class="el-dropdown-link primary-text" primary>
               Standard<i class="el-icon-arrow-down el-icon--right" />
@@ -23,10 +23,10 @@
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
-        <el-col :span="3" class="primary-text">
+        <el-col :span="window.width > 500 ? 3 : 6" class="primary-text" :offset="window.width > 500 ? 0 : 1">
           <div @click="getSections()">Clear filter</div>
         </el-col>
-        <el-col style="padding-left: 10px" :span="1" :offset="7">
+        <el-col :style="window.width > 500 ? 'padding-left: 10px' : ''" :span="window.width > 500 ? 1 : 4" :offset="window.width > 500 ? 7 : 0">
           <e-button @click="searchBar = !searchBar" icon="el-icon-search" :plain="true" css="bg-tranparent" ></e-button>
         </el-col>
       </el-row>
@@ -34,9 +34,9 @@
       <div class="card" id="fee-details">
         <receipts-card icons='finance/rupee' v-for="(receipts, i) in receiptscard" :key="i" :title="receipts.title" :count="receipts.count" />
       </div>
-      <div class="buttons" style="display: flex; justify-content: flex-end" id="button-container">
-        <e-button :span="3" label="Export pdf" css="sort-icon" :plain="true" type="primary" />
-        <e-button :span="3" label="Export Excel" css="sort-icon" :plain="true" type="primary" />
+      <div class="buttons" :style="window.width > 767 ? 'display: flex; justify-content: flex-end' : 'display: flex; margin-top: 20px;'" id="button-container">
+        <e-button :span="window.width > 767 ? 3 : 12" label="Export pdf" :css="window.width > 767 ? 'sort-icon' : 'sort-icon float-right mr20'" :plain="true" type="primary" />
+        <e-button :span="window.width > 767 ? 3 : 12" label="Export Excel" css="sort-icon" :plain="true" type="primary" />
       </div>
       <br />
       
@@ -74,8 +74,10 @@ import receiptsCard from "@/components/finance/receiptsCard.vue";
 import { dispatchGraphql } from "@/api/dispatcher";
 import Pagination from '@/components/Pagination'
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { receiptsCard, Pagination },
+  mixins: [screenSize],
   data: () => ({
     searchBar: false,
     total: 0,
@@ -248,6 +250,11 @@ export default {
   }
   .buttons {
     margin-left: -400px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .card {
+    display: unset;
   }
 }
 </style>

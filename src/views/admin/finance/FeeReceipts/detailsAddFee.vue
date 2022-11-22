@@ -34,21 +34,21 @@
         </el-col>
       </el-row>
       <br />
-      <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
+      <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'">
         <e-button
-          :span="18"
+          :span="window.width > 767 ? 18 : 12"
           label="Cancel"
           width="180"
           type="text"
-          class="p-45 cancel-button-margin"
+          :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''"
         ></e-button>
         <e-button
-          :span="3"
+          :span="window.width > 767 ? 3 : 12"
           label="Proceed"
           width="180"
           @click="$router.push($url.FI_FEE_RECEIPTS_ADD + '/student/' + feeDetail.student)"
           css="float-right"
-          class="p-45"
+          :class="window.width > 767 ? 'p-45' : ''"
         ></e-button>
       </el-row>
     </e-container>
@@ -56,7 +56,9 @@
 </template>
 <script>
 import { dispatchGraphql } from "@/api/dispatcher";
+import screenSize from "@/mixins/screenSize"
 export default {
+  mixins: [screenSize],
   data: () => ({
     feeDetail: {},
     sections: [],

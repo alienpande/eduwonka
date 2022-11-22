@@ -3,7 +3,7 @@
     <e-container hideHeader pageTitle="View Fee" :back="$url.FI_FEE_RECEIPTS">
       <div style="border-radius: 10px 10px 0px 0px">
         <el-row>
-          <el-col :span="10">
+          <el-col :span="window.width > 767 ? 10 : 24">
             <el-row
               style="
                 border-radius: 10px 10px 0px 0px;
@@ -41,7 +41,7 @@
               </el-col>
             </el-row>
           </el-col>
-          <el-col :span="12" :offset="1">
+          <el-col :span="window.width > 767 ? 12 : 24" :offset="window.width > 767 ? 1 : 0">
             <el-row style="background: white; padding: 25px">
               <div style="color: #000000cc; margin-left: 92px; font-sixe: 16px">
                 Fee payment Status
@@ -82,10 +82,7 @@
           </el-col>
         </el-row>
       </div>
-
-      <div
-        style="display: flex; justify-content: space-between; margin: 20px 0"
-      >
+      <div :style="window.width > 767 ? 'display: flex; justify-content: space-between; margin: 20px 0' : ''">
         <receipts-card
           v-for="(receipts, i) in receiptscard"
           :key="i"
@@ -167,21 +164,21 @@
        <div style="color: #00000099;" class="fs-16 ">{{studentFeeDetails.remarks}}</div>
       </el-card>
 
-      <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
+      <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'">
         <e-button
-          :span="18"
+          :span="window.width > 767 ? 18 : 12"
           label="Cancel"
           width="180"
           type="text"
-          class="p-45 cancel-button-margin"
+          :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''"
         ></e-button>
         <e-button
-          :span="3"
+          :span="window.width > 767 ? 3 : 12"
           label="Proceed"
           width="180"
           @click="handleClick"
           css="float-right"
-          class="p-45"
+          :class="window.width > 767 ? 'p-45' : ''"
         ></e-button>
       </el-row>
     </e-container>
@@ -192,8 +189,10 @@ import receiptsCard from "@/components/finance/receiptsCard.vue";
 import { mapMutations } from "vuex";
 import { dispatchGraphql } from "@/api/dispatcher";
 import moment from "moment"
+import screenSize from "@/mixins/screenSize"
 export default {
   components: { receiptsCard },
+  mixins: [screenSize],
   data: () => ({
     receiptscard: [
       {
