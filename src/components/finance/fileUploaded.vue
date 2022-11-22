@@ -1,9 +1,8 @@
 <template>
-  <div>
     <el-row>
       <el-col :span="18" style="background: white">
         <el-row>
-          <el-col :span="15">
+          <el-col :span="window.width > 767 ? 15 : 24">
             <div class="upload-btn-wrappers">
               <div
                 class="btn-er"
@@ -53,7 +52,7 @@
             <br/>
             
           </el-col>
-          <el-col :span="7">
+          <el-col :span="window.width > 767 ? 7 : 24">
             <br />
             <div
               style="
@@ -111,8 +110,15 @@
         </el-row>
       </el-col>
     </el-row>
-  </div>
 </template>
+
+<script>
+import screenSize from "@/mixins/screenSize"
+export default {
+  mixins: [screenSize]
+}
+</script>
+
 <style>
 .upload-btn-wrapper {
   position: relative;

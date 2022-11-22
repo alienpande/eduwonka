@@ -20,7 +20,7 @@
           </el-row>
 
           <el-row class="finance-expenses-menu-wraper" v-if="!searchBar" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
-            <el-col :span="5" class="dropdown-tab ">
+            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab ">
               <!-- <e-dropdown :list="categories" primary /> -->
               <el-dropdown @command="handleCategory">
                 <span class="el-dropdown-link" primary>
@@ -34,7 +34,7 @@
             <!-- <el-col :span="7" :offset="1" class="primary-text data-range__dropdown dropdown-tab">
               <e-dropdown :list="filter2" primary />
             </el-col> -->
-            <el-col :span="5" class="dropdown-tab ">
+            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab ">
               <!-- <e-dropdown :list="filter3" primary /> -->
               <el-dropdown @command="handlePrice">
                 <span class="el-dropdown-link text" primary>
@@ -45,7 +45,7 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
-            <el-col :span="3" class="primary-text dropdown-tab">
+            <el-col :span="window.width > 767 ? 3 : 5" class="primary-text dropdown-tab">
               <div class="text" @click="getCategories()">Clear filter</div>
             </el-col>
             <el-col style="padding-left: 10px" :span="1" :offset="1">
@@ -92,7 +92,7 @@
           </el-row>
 
           <el-row class="finance-expenses-menu-wraper" v-if="!searchBar" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
-            <el-col :span="5" class="dropdown-tab">
+            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab">
               <!-- <e-dropdown :list="categories" primary /> -->
               <el-dropdown @command="handleCategory">
                 <span class="el-dropdown-link" primary>
@@ -106,7 +106,7 @@
             <!-- <el-col :span="7" :offset="1" class="primary-text data-range__dropdown dropdown-tab">
               <e-dropdown :list="filter2" primary />
             </el-col> -->
-            <el-col :span="5" class="dropdown-tab">
+            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab">
               <!-- <e-dropdown :list="filter3" primary /> -->
               <el-dropdown @command="handlePrice">
                 <span class="el-dropdown-link text finance-expenses" primary >
@@ -117,7 +117,7 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
-            <el-col :span="3" class="primary-text dropdown-tab">
+            <el-col :span="window.width > 767 ? 3 : 5" class="primary-text dropdown-tab">
               <div class="text" @click="getCategories()">Clear filter</div>
             </el-col>
             <el-col style="padding-left: 10px" :span="1" :offset="1">
@@ -160,8 +160,10 @@
 import { dispatchGraphql } from '@/api/dispatcher'
 import Pagination from '@/components/Pagination'
 import _ from 'lodash'
+import screenSize from "@/mixins/screenSize"
 export default {
   components: { Pagination },
+  mixins: [screenSize],
   data: () => ({
     searchBar: false,
     pa:'<div>is it work</div>',

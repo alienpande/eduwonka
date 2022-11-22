@@ -44,9 +44,9 @@
           Attach files
         </div>
         <file-upload class="finance-add-expenses-upload" />
-        <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-          <e-button :span="18" label="Cancel" width="180" type="text" class="p-45 cancel-button-margin" />
-          <e-button :span="3" width="180" label="Create Expense" @click="handleSubmit(saveExpenses)" css="float-right" class="p-45" />
+        <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'">
+          <e-button :span="window.width > 767 ? 18 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''" />
+          <e-button :span="window.width > 767 ? 3 : 12" width="180" label="Create Expense" @click="handleSubmit(saveExpenses)" css="float-right" :class="window.width > 767 ? 'p-45' : ''" />
         </el-row>
       </e-container>
     </ValidationObserver>
@@ -56,8 +56,10 @@
 import fileUpload from '@/components/finance/fileUploaded.vue'
 // import moment from 'moment'
 import { dispatchGraphqlQuery , dispatchGraphqlMutation} from "@/api/dispatcher";
+import screenSize from "@/mixins/screenSize"
 export default {
   components:{ fileUpload },
+  mixins: [screenSize],
   data: () => ({
     rules: {},
     req: {},
