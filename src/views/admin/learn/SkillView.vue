@@ -86,7 +86,7 @@
       </div>
       <br />
       <el-row :gutter="20">
-        <el-col :span="20">
+        <el-col :span="20" :style="{display: window.width > 767 ? 'block' : 'grid'}">
           <el-col class="mg-t-10" :span="5" :offset="1" v-for="(performer, i) in getPerformers('best')" :key="i">
             <el-card style="width: 250px; margin-right: 30px" class="rounded-08 student-perform">
               <br />
@@ -122,7 +122,7 @@
       </div>
       <br />
       <el-row :gutter="20">
-        <el-col :span="20">
+        <el-col :span="20" :style="{display: window.width > 767 ? 'block' : 'grid'}">
           <el-col class="mg-t-10" :span="5" :offset="1" v-for="(performer, i) in getPerformers('weak')" :key="i">
             <el-card style="width: 250px; margin-right: 30px" class="rounded-08 student-perform">
               <br />
@@ -182,8 +182,11 @@
 import { dispatchGraphql } from "@/api/dispatcher"
 import skillDetails from "@/components/learn/skill/skillDetails.vue"
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
+
 export default {
   components: { skillDetails },
+  mixins: [screenSize],
   data: () => ({
     isRight:false,
     daylist: [],

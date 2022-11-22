@@ -1,8 +1,8 @@
 <template>
   <div v-if="standardSubject" style="overflow: auto; height: 80vh">
     <course-header title="Introduction" :standard="standard.name" :subject="subject.name" />
-    <el-row style="padding: 0 25px 0 25px">
-      <el-col :span="11" style="margin-right: 20px">
+    <el-row :style="{display: window.width > 767 ? 'block' : 'grid'}" style="padding: 0 25px 0 25px">
+      <el-col :span="window.width > 767 ? 24 : 11" style="margin-right: 20px">
         <div class="heading">Course description</div>
         <el-card
           shadow="none"
@@ -54,7 +54,7 @@
           </VueSlickCarousel>
         </el-card>
       </el-col>
-      <el-col :span="7">
+      <el-col :span="window.width > 767 ? 24 : 7">
         <div class="heading">Topics of the Course</div>
         <el-card
           shadow="none"
@@ -106,8 +106,11 @@
 import courseductionRight from "@/components/learn/course/indroductionRight.vue"
 import VueSlickCarousel from "vue-slick-carousel"
 import {  dispatchGraphql, dispatchGraphqlMutation  } from "@/api/dispatcher"
+import screenSize from '@/mixins/screenSize'
+
 export default {
   components: { VueSlickCarousel, courseductionRight },
+  mixins: [screenSize],
   data: () => ({
     showSideBar: false,
     standard: {},

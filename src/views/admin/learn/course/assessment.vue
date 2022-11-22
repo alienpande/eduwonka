@@ -49,7 +49,7 @@
                   {{ student.name }}
                 </div>
               </el-col>
-              <el-col :span="6" style="width:auto">
+              <el-col :span="6" :style="{width: window.width ? '37%' : 'auto'}">
                 <div
                   style="
                     border-radius: 10px;
@@ -98,8 +98,11 @@
 <script>
 import { dispatchGraphql, dispatchGraphqlQueryByPk }  from  '@/api/dispatcher'
 import esPagination from '@/studentControl/esPagination'
+import screenSize from '@/mixins/screenSize'
+
 export default {
   components: { esPagination },
+  mixins: [screenSize],
   data: () => ({
     exams: [],
     student: {},

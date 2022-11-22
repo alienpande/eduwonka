@@ -597,6 +597,7 @@ a {
 .mt30 {
   margin-top: 30px;
 }
+
 .mt40 {
   margin-top: 40px;
 }
@@ -2546,6 +2547,13 @@ main.el-main.body > .heading:first-child{
   }
   .econtainer>.header{
     padding: 31px 20px 44px 20px;
+  }
+  .econtainer>.body.noHeader {
+    height: calc(100vh - 400px);
+  }  
+  .searchCard {
+    column-gap: 0;
+    justify-content: space-between;
   }
   .searchCard.el-row > div:last-child,
   .fc-header-toolbar{

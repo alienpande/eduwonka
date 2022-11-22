@@ -132,10 +132,10 @@
       <div class="heading">Assessment stats</div>
       <el-card shadow="none" class="rounded-08 cp">
         <el-row>
-          <el-col :span="12" class="sm-width-100" style="border-right: 1px solid #e6eaed; padding-left: 15px">
+          <el-col :style="{'margin-bottom': window.width > 767 ? '0' : '30px' }" :span="12" class="sm-width-100" style="border-right: 1px solid #e6eaed; padding-left: 15px">
             <result-stat v-if="chartLoading" :chartData="chartData" :chartOptions="chartOptions" />
           </el-col>
-          <el-col :span="6" style="padding-left: 25px">
+          <el-col :span="window.width > 767 ? 6 : 12" style="padding-left: 25px">
             <div class="pr-x-40 mg-y-20 text-left" style="font-weight: bold">
               Best performers
             </div>
@@ -143,7 +143,7 @@
               <e-img-name :src="require('@/assets/images/profile.jpg')" nameStyle="font-weight:normal" :name="report.student.first_name" />
             </div>
           </el-col>
-          <el-col :span="6" style="padding-left: 25px">
+          <el-col :span="window.width > 767 ? 6 : 12" style="padding-left: 25px">
             <div class="pr-x-40 mg-y-20 text-left" style="font-weight: bold">
               Weak performers
             </div>
@@ -262,9 +262,11 @@ import courseHeader from "@/components/learn/course/courseHeader.vue"
 import { dispatchGraphql, dispatchGraphqlQuery } from '@/api/dispatcher'
 import moment from 'moment'
 import _ from 'lodash'
+import screenSize from '@/mixins/screenSize'
 
 export default {
   components: { courseHeader, resultStat, lessonGraph },
+  mixins: [screenSize],
   data: () => ({
     attendanceType: '',
     attendances: [],
