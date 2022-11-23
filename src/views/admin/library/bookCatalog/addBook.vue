@@ -174,13 +174,13 @@
       <el-row style="border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 30px;">
         <el-col style="float: right" :span="window.width > 500 ? 9 : 24">
           <e-button
-            :span="15"
+            :span="window.width > 767 ? 15 : 12"
             label="Cancel"
             css="cancel_btn float-right"
             type="default"
           ></e-button>
           <e-button
-            :span="8"
+            :span="window.width > 767 ? 8 : 12"
             label="Create Book"
             @click="handleSubmit(createBook())"
             css="float-right"
