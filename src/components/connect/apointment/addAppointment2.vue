@@ -1,5 +1,5 @@
 <template>
-  <div class="student-tab" style="padding: 0 100px; margin-top: 100px">
+  <div class="student-tab" :style="{padding: window.width > 767 ? '0 100px' : '0'}" style="margin-top: 100px">
     <e-dialog :title="'Custom audience selection '" v-model="dialog" width="60%" top="20vh" noEsc :gutter="20" hideDefaultFooter @cancel="dialog = false" @confirm="dialog = false">
       <el-col :span="24" style="margin-bottom: 20px; margin-top: -30px; padding-bottom: 20px; font-size: 12px; display: flex; justify-content: space-between; border-bottom: 2px solid rgb(252, 223, 189);">
         <div style="width: 350px; opacity: 0.6">
@@ -38,12 +38,12 @@
               </el-select>
             </el-col >
           </el-col>
-          <el-col :span="12">
+          <el-col :span="window.width > 767 ? 12 : 18">
             <div style="margin-bottom: 10px; font-weight: bold">
               Audience selection
             </div>
             <el-row>
-              <el-col :span="10">
+              <el-col :span="window.width > 767 ? 10 : 24">
                 <el-card shadow="none" style="margin-right: 20px" class="rounded-08 elimeny" >
                   <div style="display: flex" @click="studentAudience()">
                     <e-svg style="margin-right: 10px" icon="AllStudents" />
@@ -52,7 +52,7 @@
                 </el-card>
               </el-col>
 
-              <el-col :span="9">
+              <el-col :span="window.width > 767 ? 9 : 24">
                 <div @click="handleCustomAudience">
                   <el-card shadow="none" class="rounded-08 elimeny">
                     <div style="display: flex">
@@ -335,7 +335,10 @@
 import selectionCard from "@/components/school/EventCalender/selectionCard.vue"
 import { dispatchGraphql } from '@/api/dispatcher'
 import _ from 'lodash'
+import screenSize from '@/mixins/screenSize'
+
 export default {
+  mixins: [screenSize],
   components: { selectionCard },
   props: {
     tabs: {
