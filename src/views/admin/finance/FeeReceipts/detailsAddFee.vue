@@ -6,11 +6,11 @@
       pageTitle="Add Fee Student Selection"
       :back="$url.FI_FEE_RECEIPTS"
     >
-      <div class="sub-headers title">
+      <div class="sub-headers title" :style="{'padding-left': window.width > 767 && '50px'}">
         Hi, Please choose the student for whom you want to create fee receipt.
       </div>
       <el-row>
-        <el-col :span="15" :offset="5">
+        <el-col :span="window.width > 767 ? 15 : 20" :offset="window.width > 767 && 5">
           <e-select
             label="Standard"
             placeholder="Choose Standard"
@@ -21,7 +21,7 @@
             @visible-change ="handleStandard"
           ></e-select>
         </el-col>
-        <el-col :span="15" :offset="5">
+        <el-col :span="window.width > 767 ? 15 : 24" :offset="window.width > 767 && 5">
           <e-select
             label="Student"
             placeholder="Choose Student"
@@ -130,7 +130,6 @@ export default {
 </script>
 <style scoped>
 .title {
-  padding-left: 50px;
   font-size: 20px;
   margin-bottom: 20px;
 }
