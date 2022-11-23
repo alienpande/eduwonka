@@ -618,6 +618,18 @@ a {
   margin-left: 10px;
 }
 
+.my20 {
+  margin: 20px 0;
+}
+
+.mx-auto {
+  margin: 0 auto !important;
+}
+
+.my-auto {
+  margin: auto 0 !important;
+}
+
 .mr20 {
   margin-right: 10px;
 }

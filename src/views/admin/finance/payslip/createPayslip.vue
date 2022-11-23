@@ -27,11 +27,11 @@
       <div class="sec-title">Employee Details</div>
       <br />
       <el-row class="finance-create-payslip-employee" style="background: white; padding: 30px 0">
-        <el-col :span="3" :offset="1">
+        <el-col :span="window.width > 767 ? 3 : 23" :offset="window.width > 767 ? 1 : 0">
           <el-avatar :size="93" :src="require('@/assets/images/profile.jpg')" />
         </el-col>
-        <el-col :span="19">
-          <el-row style="background: #fcdfbd33; height: 140px; display: flex; flex-wrap: wrap; padding: 10px 20px;">
+        <el-col :span="window.width > 767 ? 19 : 24">
+          <el-row :style="window.width > 767 ? 'background: #fcdfbd33; height: 140px; display: flex; flex-wrap: wrap; padding: 10px 20px;' : 'background: #fcdfbd33; padding: 10px 20px; margin-top: 20px;'">
             <div style="width: 205px; margin-bottom: 22px" v-for="(employee, i) in employees" :key="i">
               <div style="color: #000000cc" class="f-500">
                 {{ employee.title }}
@@ -53,8 +53,10 @@ import payslipDetails from "@/components/finance/payslipDetails.vue"
 import { mapMutations } from "vuex"
 import moment from 'moment'
 import { dispatchGraphql } from "@/api/dispatcher"
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { payslipDetails },
+  mixins : [screenSize],
   data: () => ({
     group: [],
     allSelect:false,

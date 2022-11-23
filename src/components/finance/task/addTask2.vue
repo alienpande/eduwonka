@@ -1,18 +1,18 @@
 <template>
-  <div class="student-tab" style="padding: 0 100px; margin-top: 100px">
+  <div class="student-tab" :style="window.width > 767 ? 'padding: 0 100px; margin-top: 100px' : 'padding: 0; margin-top: 60px;'">
     <el-tabs class="floatTabHeader border-section" v-model="activeName" >
       <el-tab-pane label="Student" name="activestudent">
        <el-row>
           <el-col :span="10">
             <div style="font-weight: bold">Standard</div>
-            <el-col :span="17">
+            <el-col :span="window.width > 767 ? 17 : 24">
               <el-select v-model="section" @change="getStudents(section)">
                 <el-option v-for="item in sections" :key="item.id" :label="item.standard.name + ' ' + item.name" :value="item.id" />
               </el-select>
             </el-col >
           </el-col>
-          <el-col :span="14">
-            <div style="margin-bottom: 10px; font-weight: bold">
+          <el-col :span="window.width > 767 ? 14 : 24">
+            <div :style="window.width > 767 ? 'margin-bottom: 10px; font-weight: bold' : 'margin: 10px 0; font-weight: bold;'">
               Audience selection
             </div>
             <el-row>
@@ -118,16 +118,15 @@
             </el-pagination>
           </el-col>
         </e-dialog>
-       
-        <el-row class="text-right" style="border-top: 1px solid #fcdfbd;margin-top: 20px;">
-          <e-button :span="17" label="Cancel" width="180" type="text" class="p-45 cancel-button-margin" />
-          <e-button :span="3" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'activeteacher'" ></e-button>
+        <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px; padding-top: 20px;'">
+          <e-button :span="window.width > 767 ? 17 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''" />
+          <e-button :span="window.width > 767 ? 3 : 12" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'activeteacher'" ></e-button>
         </el-row>
       </el-tab-pane>
       <el-tab-pane label="Teacher" name="activeteacher"> 
         <el-row>
-          <el-col :span="6">&emsp;&emsp;</el-col>
-          <el-col :span="12">
+          <el-col :span="6" v-if="window.width > 767">&emsp;&emsp;</el-col>
+          <el-col :span="window.width > 767 ? 12 : 24">
             <div style="margin-bottom: 10px; font-weight: bold">
               Audience selection
             </div>
@@ -235,15 +234,15 @@
           </el-col>
         </e-dialog>
        
-        <el-row class="text-right" style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;">
-          <e-button :span="17" label="Cancel" width="180" type="default" class="p-45 cancel-button-margin" ></e-button>
-          <e-button :span="3" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'activemanagement'" ></e-button>
+        <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px; padding-top: 20px;'">
+          <e-button :span="window.width > 767 ? 17 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''" />
+          <e-button :span="window.width > 767 ? 3 : 12" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'activemanagement'" ></e-button>
         </el-row>
       </el-tab-pane>
       <el-tab-pane label="Management" name="activemanagement"> 
         <el-row>
-          <el-col :span="6">&emsp;&emsp;</el-col>
-          <el-col :span="12">
+          <el-col :span="6" v-if="window.width > 767">&emsp;&emsp;</el-col>
+          <el-col :span="window.width > 767 ? 12 : 24">
             <div style="margin-bottom: 10px; font-weight: bold">
               Audience selection
             </div>
@@ -350,15 +349,15 @@
             </el-pagination>
           </el-col>
         </e-dialog>
-        <el-row class="text-right" style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;">
-          <e-button :span="17" label="Cancel" width="180" type="default" class="p-45 cancel-button-margin" ></e-button>
-          <e-button :span="3" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'activeno'" ></e-button>
+        <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px; padding-top: 20px;'">
+          <e-button :span="window.width > 767 ? 17 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''" />
+          <e-button :span="window.width > 767 ? 3 : 12" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'activeno'" ></e-button>
         </el-row>
       </el-tab-pane>
       <el-tab-pane label="Non - teaching staff" name="activeno"> 
         <el-row>
-          <el-col :span="6">&emsp;&emsp;</el-col>
-          <el-col :span="12">
+          <el-col :span="6" v-if="window.width > 767">&emsp;&emsp;</el-col>
+          <el-col :span="window.width > 767 ? 12 : 24">
             <div style="margin-bottom: 10px; font-weight: bold">
               Audience selection
             </div>
@@ -465,19 +464,19 @@
             </el-pagination>
           </el-col>
         </e-dialog>
-        <el-row class="text-right" style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;">
-          <e-button :span="17" label="Cancel" width="180" type="default" class="p-45 cancel-button-margin" ></e-button>
-          <e-button :span="3" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'activegroup'" ></e-button>
+        <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px; padding-top: 20px;'">
+          <e-button :span="window.width > 767 ? 17 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''" />
+          <e-button :span="window.width > 767 ? 3 : 12" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'activegroup'" ></e-button>
         </el-row>
       </el-tab-pane>
       <el-tab-pane label="Group" name="activegroup">
            <el-row>
-          <el-col :span="6">
+          <el-col :span="window.width > 767 ? 6 : 24">
             <div style="font-weight: bold">Group</div>
             <e-select :span="17" :options="subjects"></e-select>
           </el-col>
-          <el-col :span="12">
-            <div style="margin-bottom: 10px; font-weight: bold">
+          <el-col :span="window.width > 767 ? 12 : 24">
+            <div :style="window.width > 767 ? 'margin-bottom: 10px; font-weight: bold' : 'margin: 20px 0; font-weight: bold'">
               Audience selection
             </div>
             <el-row>
@@ -521,22 +520,9 @@
           </el-col>
         </el-row>
       
-        <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-          <e-button
-            :span="17"
-            label="Cancel"
-            width="180"
-            type="default"
-            class="p-45 cancel-button-margin"
-          ></e-button>
-          <e-button
-            :span="3"
-            label="Create Task"
-            width="180"
-            @click="handleClick"
-            css="float-right"
-            class="p-45"
-          ></e-button>
+        <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px; padding-top: 20px;'">
+          <e-button :span="window.width > 767 ? 17 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''" />
+          <e-button :span="window.width > 767 ? 3 : 12" label="Create Task" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : ''" @click="handleClick" ></e-button>
         </el-row>
       </el-tab-pane>
     </el-tabs>
@@ -545,8 +531,10 @@
 <script>
 import selectionCard from "@/components/finance/task/selectionCard.vue"
 import { dispatchGraphql } from '@/api/dispatcher'
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { selectionCard },
+  mixins: [screenSize],
   props: {
     taskid: {
       type: String,

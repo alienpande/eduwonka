@@ -5,7 +5,7 @@
                 <el-tab-pane label="Created by me" name="created">
                     <div class="sub-headers"> {{ total }} Tasks Created by me</div>
                     <el-row class="finance-task-sub-head" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
-                      <el-col :span="5" style="padding-left: 25px" class="primary-text dropdown-tab" >
+                      <el-col :span="window.width > 767 ? 5 : 8" style="padding-left: 25px" class="primary-text dropdown-tab" >
                         <el-dropdown @command="handleStatus">
                             <span class="el-dropdown-link primary-text text" primary>
                                 Status<i class="el-icon-arrow-down el-icon--right"></i>
@@ -16,10 +16,10 @@
                           </el-dropdown-menu>
                         </el-dropdown>
                       </el-col>
-                      <el-col :span="4" class="primary-text dropdown-tab">
+                      <el-col :span="window.width > 767 ? 4 : 8" class="primary-text dropdown-tab">
                         <div class="text" @click="handleTasks()">Clear filter</div>
                       </el-col>
-                      <el-col style="padding-left: 10px" :span="1" :offset="2">
+                      <el-col style="padding-left: 10px" :span="window.width > 767 ? 1 : 6" :offset="2">
                         <e-button icon="el-icon-search" :plain="true" css="bg-tranparent"></e-button>
                       </el-col>
                     </el-row>
@@ -29,7 +29,7 @@
                 <el-tab-pane label="Assigned to me" name="assigned">
                     <div class="sub-headers"> {{ total }} Tasks assigned to me</div>
                     <el-row class="finance-task-sub-head" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
-                      <el-col :span="5" style="padding-left: 25px" class="primary-text dropdown-tab" >
+                      <el-col :span="window.width > 767 ? 5 : 8" style="padding-left: 25px" class="primary-text dropdown-tab" >
                         <el-dropdown @command="handleStatus">
                             <span class="el-dropdown-link primary-text text" primary>
                                 Status<i class="el-icon-arrow-down el-icon--right"></i>
@@ -40,10 +40,10 @@
                           </el-dropdown-menu>
                         </el-dropdown>
                       </el-col>
-                      <el-col :span="4" class="primary-text dropdown-tab">
+                      <el-col :span="window.width > 767 ? 4 : 8" class="primary-text dropdown-tab">
                         <div class="text" @click="handleTasks()">Clear filter</div>
                       </el-col>
-                      <el-col style="padding-left: 10px" :span="1" :offset="2">
+                      <el-col style="padding-left: 10px" :span="window.width > 767 ? 1 : 6" :offset="2">
                         <e-button icon="el-icon-search" :plain="true" css="bg-tranparent"></e-button>
                       </el-col>
                     </el-row>
@@ -60,8 +60,10 @@ import { dispatchGraphql } from '@/api/dispatcher'
 import taskCard from "@/components/finance/taskCard.vue";
 import { getId } from '@/util/auth'
 import _ from 'lodash'
+import screenSize from '@/mixins/screenSize'
 export default {
     components: { taskCard },
+    mixins: [screenSize],
     data: () => ({
         activeName: "created",
         tasks: [],

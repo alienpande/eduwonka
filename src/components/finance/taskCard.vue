@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-col :span="11" :offset="1" v-for="(task, i) in tasks" :key="i">
+    <el-col :span="window.width > 767 ? 11 : 24" :offset="window.width > 767 ? 1 : 0" v-for="(task, i) in tasks" :key="i">
       <el-card class="cp" style="width:31rem;border-radius: 10px;margin-bottom:30px">
         <div @click="handleTask(task)">
         <el-row>
@@ -39,6 +39,7 @@
 </template>
 <script>
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
 export default {
   props: {
     tasks: {
@@ -46,6 +47,7 @@ export default {
       default: []
     }
   },
+  mixins: [screenSize],
   methods: {
     handleTask(task) {
       this.$router.push(this.$url.FI_TASK_VIEW + "/" + task.id)

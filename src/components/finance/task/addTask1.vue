@@ -11,7 +11,7 @@
           <e-input label="Priority*" placeholder="Enter Priority" v-model="task.priority" rules="required"></e-input>
         </el-col>
         <el-col :span="23">
-          <div class="color: #000000CC;font-size:16px;padding:10px 0">
+          <div class="color: #000000CC;font-size:16px;padding:10px 0; mt10">
             Description
           </div>
           <textarea 
@@ -88,6 +88,7 @@
         @click="titmeline++"
         label="Add End Date"
         icon="el-icon-plus"
+        class="mt10 mb10"
         :plain="true"
       ></e-button>
       <br/>
@@ -96,7 +97,7 @@
     <div class="heading">Task Frequency</div>
     <el-card shadow="none">
       <el-row>
-        <el-col :span="9">
+        <el-col :span="window.width > 767 ? 9 : 24">
           <e-radio v-model="reportValue"
             :span="12"
             label="Do you want to repeat this task?"
@@ -109,19 +110,15 @@
     </el-card>
     <el-card v-if="reportValue==='Yes'"
       shadow="none"
-      style="
-        border-top: none;
-        margin-top: -5px;
-        background: #fcdfbd;
-        padding: 0 30px;
-        padding-top: 20px;
+      :style="
+        window.width > 767 ? 'border-top: none;margin-top: 10px;background: #fcdfbd;padding: 0 30px;padding-top: 20px;' : 'border-top: none;margin-top: 10px;background: #fcdfbd;padding: 6px;'
       "
     >
       <el-row>
-        <el-col :span="11">
-          <e-radio label="Repeat" v-model="repeatValue"  :options="Repeat" @change='select' rules="required" />
+        <el-col :span="window.width > 767 ? 11 : 24">
+          <e-radio label="Repeat" v-model="repeatValue"  :options="Repeat" @change='select' rules="required" :class="window.width > 767 ? '' : 'mb30'" />
         </el-col>
-        <el-col :span="11" :offset="1">
+        <el-col :span="window.width > 767 ? 11 : 24" :offset="window.width > 767 ? 1 : 0">
           <e-radio
             label="End Repeat"
             v-model="endRepeatValue"
@@ -130,7 +127,7 @@
           />
           <div v-if="endRepeatValue === 'End repeat date'">
             <e-date-picker
-              class="default-picker"
+              class="default-picker mt20 mb10"
               placeholder="Choose End repeat date"
               v-model ="task.repeat_end_date"
               @change="changeEndDate"
@@ -144,7 +141,7 @@
     <div class="heading">Other Details</div>
     <el-card shadow="none">
       <el-row>
-        <el-col :span="10">
+        <el-col :span="window.width > 767 ? 10 : 12">
           <e-date-picker
             label="Assignment date"
             class="default-picker"
@@ -155,7 +152,7 @@
             rules="required"
           ></e-date-picker>
         </el-col>
-        <el-col :span="10" :offset="1">          
+        <el-col :span="window.width > 767 ? 10 : 12" :offset="window.width > 767 ? 1 : 0">          
           <e-select
             label="Assigned By"
             placeholder="Choose Assign"
@@ -169,7 +166,7 @@
           ></e-select>
         </el-col>
         <el-col>
-          <e-radio label="Image is mandatory ?" v-model="imageValue" :options="report" rules="required" />
+          <e-radio label="Image is mandatory ?" v-model="imageValue" :options="report" rules="required" class="mt30" />
         </el-col>
       </el-row>
     </el-card>
@@ -193,8 +190,10 @@
 import {  dispatchGraphql ,dispatchGraphqlMutation} from "@/api/dispatcher";
 import eDatePicker from "@/controls/eDatePicker.vue";
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { eDatePicker },
+  mixins: [screenSize],
   data: () => ({
     rules: {},
     reportValue:'Yes',

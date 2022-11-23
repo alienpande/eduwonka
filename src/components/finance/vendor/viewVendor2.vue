@@ -3,31 +3,31 @@
     <div class="heading">Vendor Catalog Details</div>
     <el-card shadow="none">
       <el-row>
-        <el-col :span="3">
+        <el-col :span="window.width > 767 ? 3 : 4">
           <div class="label">Item name</div>
         </el-col>
-        <el-col :span="6" :offset="1">
+        <el-col :span="window.width > 767 ? 6 : 8" :offset="1">
           <div class="label">Description</div>
         </el-col>
-        <el-col :span="3" :offset="1">
+        <el-col :span="window.width > 767 ? 3 : 6" :offset="1">
           <div class="label">Catagory</div>
         </el-col>
-        <el-col :span="2" :offset="1">
+        <el-col :span="window.width > 767 ? 2 : 3" :offset="1">
           <div class="label">Cost</div>
         </el-col>
       </el-row>
       <div v-for="catalog in catalogs" :key="catalog.id">
         <el-row>
-          <el-col :span="3">
+          <el-col :span="window.width > 767 ? 3 : 4">
             <div class="label-text">{{ catalog.name }}</div>
           </el-col>
-          <el-col :span="6" :offset="1">
+          <el-col :span="window.width > 767 ? 6 : 8" :offset="1">
             <div class="label-text">{{ catalog.description }}</div>
           </el-col>
-          <el-col :span="3" :offset="1">
+          <el-col :span="window.width > 767 ? 3 : 6" :offset="1">
             <div class="label-text">{{ catalog.category.name }}</div>
           </el-col>
-          <el-col :span="2" :offset="1">
+          <el-col :span="window.width > 767 ? 2 : 3" :offset="1">
             <div class="label-text">{{ catalog.price }}</div>
           </el-col>
         </el-row>
@@ -35,22 +35,22 @@
       <br/>
       <div v-for="(catalog,index) in newCatalogs" :key="index">
         <el-row>
-          <el-col :span="3">
+          <el-col :span="window.width > 767 ? 3 : 4">
             <e-input v-model="catalog.name" type="textarea" />
           </el-col>
-          <el-col :span="6" :offset="1">
+          <el-col :span="window.width > 767 ? 6 : 8" :offset="1">
             <e-input v-model="catalog.description" type="textarea" />
           </el-col>
-          <el-col :span="3" :offset="1">
+          <el-col :span="window.width > 767 ? 3 : 6" :offset="1">
             <!-- <e-select label="Catagory"></e-select> -->
             <el-select v-model="catalog.category_id" placeholder="select" >
               <el-option v-for="item in categories" :key="item.id" :label="item.name" :value="item.id" />
            </el-select>
           </el-col>
-          <el-col :span="2" :offset="1">
+          <el-col :span="window.width > 767 ? 2 : 3" :offset="1">
             <e-input v-model="catalog.price" type="textarea" />
           </el-col>
-          <el-col :span="1" :offset="1">
+          <el-col :span="window.width > 767 ? 1 : 23" :offset="1">
             <br />
             <img style="margin-top: 5px" src="@/assets/images/custom-del-icon.png" alt="" @click="remove()" />
           </el-col>
@@ -68,7 +68,9 @@
 </template>
 <script>
 import { dispatchGraphql } from "@/api/dispatcher"
+import screenSize from '@/mixins/screenSize'
 export default {
+  mixins: [screenSize],
   props: {
     vendor: {
       type: Object,

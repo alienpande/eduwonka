@@ -10,7 +10,7 @@
         <div class="fs-16 f-500 numberFive">5</div> -->
         <e-svg style="display: inline-block; transform: rotate(90deg); margin-left: 22px; cursor: pointer;" :class="{'rotate-90' : boxShow}" icon="arrow" @click="boxShow=!boxShow" />
       </el-col>
-      <el-col v-if="!boxShow" :span="3" :offset="20" style="padding-bottom:20px">
+      <el-col v-if="!boxShow" :span="window.width > 767 ? 3 : 20" :offset="window.width > 767 ? 20 : 4" style="padding-bottom:20px">
         <br/>
         <e-button label="Proceed" width="200" @click="handleGroup" />
         <br/>
@@ -45,9 +45,11 @@
   </div>
 </template>
 <script>
+import screenSize from '@/mixins/screenSize'
 import { dispatchGraphqlQuery } from "@/api/dispatcher"
 export default {
   components:{ },
+  mixins: [screenSize],
   props: {
     employees: {
       type: Array

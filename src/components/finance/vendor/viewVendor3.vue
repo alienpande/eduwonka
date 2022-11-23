@@ -6,8 +6,7 @@
           <div class="sub-headers">
           </div>
           <el-row class="finance-invoice " :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;display:flex;align-items:center;">
-            
-            <el-col :span="5" style="padding-left: 25px" class="dropdown-tab">
+            <el-col :span="window.width > 767 ? 5 : 8" style="padding-left: 25px" class="dropdown-tab">
               <!-- <e-dropdown :list="filter2" primary -->
               <el-dropdown @command="handleStatus">
                 <span class="el-dropdown-link primary-text text" primary>
@@ -18,10 +17,10 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
-            <el-col :span="3" class="primary-text">
+            <el-col :span="window.width > 767 ? 3 : 8" class="primary-text">
               <div class="text" @click="getUser()">Clear filter</div>
             </el-col>
-            <el-col style="padding-left: 10px" :span="1">
+            <el-col style="padding-left: 10px" :span="window.width > 767 ? 1 : 8">
               <e-button icon="el-icon-search" :plain="true" css="bg-tranparent"></e-button>
             </el-col>
           </el-row>
@@ -102,11 +101,13 @@ import Pagination from '@/components/Pagination'
 import { mapMutations } from "vuex"
 import moment from 'moment'
 import _ from 'lodash'
+import screenSize from '@/mixins/screenSize'
 // import expensesTable from "@/components/finance/expenses/expensesTable.vue";
 export default {
   components: {
     Pagination
   },
+  mixins: [screenSize],
   data: () => ({
     searchBar: false,
     activeName: "Pending",

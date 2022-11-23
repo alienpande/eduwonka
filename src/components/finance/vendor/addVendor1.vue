@@ -6,7 +6,7 @@
       </div>
       <el-card shadow="none" :rules="rules">
         <el-row :gutter="20">
-          <el-row :gutter="20">
+          <el-row :gutter="20" class="mb10">
             <el-col :span="23">
               <e-input v-model="vendor.first_name" type="textarea" label="Vendor Name" placeholder="Enter Vendor Name" rules="required"></e-input>
               <!-- <el-select v-model="vendor" placeholder="Enter Vendor Name" @change="updateValues" rules="required">
@@ -14,19 +14,19 @@
               </el-select> -->
             </el-col>
           </el-row>
-          <el-row :gutter="20">
-            <el-col :span="11">
+          <el-row :gutter="20" class="mb10">
+            <el-col :span="window.width > 767 ? 11 : 12">
               <e-input v-model="vendor.contact_person" type="textarea" label="Contact person" placeholder="Enter Contact Person" rules="required"></e-input>
             </el-col>
-            <el-col :offset="1" :span="11">
+            <el-col :offset="window.width > 767 ? 1 : 0" :span="window.width > 767 ? 11 : 12">
               <e-input v-model="vendor.contact_person_number" type="number"  label="Phone Number" placeholder="Enter Phone Number" rules="required"></e-input>
             </el-col>
           </el-row>
-          <el-row :gutter="20">
-            <el-col :span="11">
+          <el-row :gutter="20" class="mb10">
+            <el-col :span="window.width > 767 ? 11 : 12">
               <e-input v-model="vendor.gst_number" type="textarea"  label="GST Number" placeholder="Enter GST Number" rules="required"></e-input>
             </el-col>
-            <el-col :offset="1" :span="11">
+            <el-col :offset="window.width > 767 ? 1 : 0" :span="window.width > 767 ? 11 : 12">
               <e-input v-model="vendor.tin_number " type="textarea"  label="Tin Number" placeholder="Enter TIN Number" rules="required"></e-input>
             </el-col>
           </el-row>
@@ -45,13 +45,15 @@
         <span class="mg-l-25">Details</span>
       </div>
       <el-card shadow="none">
-        <el-row>
+        <el-row class="mb10">
           <el-col :span="11">
             <e-input v-model="bankDetails.account_no " type="textarea" label="Account Number" placeholder="Enter Account Number" rules="required"></e-input>
           </el-col>
           <el-col :span="11" :offset="1">
             <e-input v-model="bankDetails.ifsc_code " type="textarea"  label="IFSC Code" placeholder="Enter IFSC Code" rules="required"></e-input>
           </el-col>
+          </el-row>
+          <el-row>
           <el-col :span="11">
             <e-input v-model="bankDetails.bank_name " type="textarea"  label="Bank Name" placeholder="Enter Bank Name" rules="required"></e-input>
           </el-col>
@@ -72,7 +74,9 @@
 import { dispatchGraphql } from "@/api/dispatcher"
 import moment from 'moment'
 import { getId } from "@/util/auth"
+import screenSize from '@/mixins/screenSize'
 export default {
+  mixins: [screenSize],
   data() {
     return {
       rules: {},

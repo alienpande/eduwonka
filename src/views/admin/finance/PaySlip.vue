@@ -3,7 +3,7 @@
     <e-container class="finance-payslip-container" pageTitle="Payslips">
       <div class="sub-headers">View or create payslips</div>
       <el-row :gutter="20" class="finance-payslip" style="padding: 15px 0px 10px 0px; margin: 0px 0px 5px 0px; background: white; height: 80px;display:flex;align-items:center;">
-        <el-col :span="5" style="padding-left: 10px" class="dropdown-bar">
+        <el-col :span="window.width > 767 ? 5 : 6" :style="window.width > 767 ? 'padding-left: 10px' : ''" class="dropdown-bar">
           <!-- <e-dropdown :list="filter" primary /> -->
           <el-dropdown @command="handleDesignation">
             <span class="el-dropdown-link primary-text text" primary>
@@ -14,7 +14,7 @@
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
-        <el-col :span="6" style="padding-left: 25px" class="primary-text dropdown-bar">
+        <el-col :span="window.width > 767 ? 6 : 6" :offset="window.width > 767 ? 0 : 1"  :style="window.width > 767 ? 'padding-left: 25px' : ''" class="primary-text dropdown-bar">
           <!-- <e-dropdown :list="filter2" primary /> -->
           <el-dropdown @command="handleDepartment">
             <span class="el-dropdown-link primary-text text" primary>
@@ -25,11 +25,10 @@
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
-
-        <el-col :span="5" class="primary-text dropdown-bar">
+        <el-col :span="window.width > 767 ? 5 : 3" :offset="window.width > 767 ? 0 : 1"  class="primary-text dropdown-bar">
           <div @click="getDepartments()"> Clear filter </div>
         </el-col>
-        <el-col style="margin-top: -10px;padding-left: 10px" :span="1" :offset="6">
+        <el-col style="margin-top: -10px;padding-left: 10px" :span="1" :offset="window.width > 767 ? 6 : 0">
           <e-button icon="el-icon-search" :plain="true" css="bg-tranparent" ></e-button>
         </el-col>
       </el-row>
@@ -77,8 +76,10 @@ import employeDrop from '@/components/finance/employeDrop.vue'
 import { dispatchGraphql, dispatchGraphqlQuery } from "@/api/dispatcher"
 import moment from 'moment'
 import esPagination from '@/studentControl/esPagination'
+import screenSize from '@/mixins/screenSize'
 export default {
   components:{employeDrop, esPagination},
+  mixins: [screenSize],
   data: () => ({
     employees: [],
     designations: [],

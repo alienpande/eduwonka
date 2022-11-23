@@ -6,28 +6,32 @@
     <el-card shadow="none">
       <el-row>
         <el-col :span="11" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">vendor</div>
-          <div style="color: #00000099;" class="fs-16">{{ invoice.vendor_information.user.first_name }}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">vendor</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.vendor_information.user.first_name }}</div>
         </el-col>
         <el-col :span="11" :offset="1" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Contact person</div>
-          <div style="color: #00000099;" class="fs-16">{{ invoice.vendor_information.contact_person }}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">Contact person</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.vendor_information.contact_person }}</div>
         </el-col>
+      </el-row>
+      <el-row>
         <el-col :span="11" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Phone Number</div>
-          <div style="color: #00000099;" class="fs-16">{{ invoice.vendor_information.contact_person_number}}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">Phone Number</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.vendor_information.contact_person_number}}</div>
         </el-col>
         <el-col :span="11" :offset="1" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">GST Number</div>
-          <div style="color: #00000099;" class="fs-16">{{ invoice.vendor_information.gst_number }}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">GST Number</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.vendor_information.gst_number }}</div>
         </el-col>
+        </el-row>
+      <el-row>
         <el-col :span="11" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Tin Number</div>
-          <div style="color: #00000099;" class="fs-16">{{ invoice.vendor_information.tin_number }}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">Tin Number</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.vendor_information.tin_number }}</div>
         </el-col>
         <el-col :span="11" :offset="1" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Address</div>
-          <div style="color: #00000099;" class="fs-16">{{ invoice.vendor_information.user.address }}</div>
+          <div style="color: #000000cc; padding-top:4px" class="fs-16 f-600">Address</div>
+          <div style="color: #00000099; padding-bottom:10px;" class="fs-16">{{ invoice.vendor_information.user.address }}</div>
         </el-col>
       </el-row>
     </el-card>
@@ -38,16 +42,16 @@
     <el-card shadow="none">
       <el-row>
         <el-col :span="7" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Invoice Number</div>
-          <div style="color: #00000099;" class="fs-16">{{ invoice.invoice_number }}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">Invoice Number</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.invoice_number }}</div>
         </el-col>
         <el-col :span="7" :offset="1" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Date of Creation</div>
-          <div style="color: #00000099;" class="fs-16">{{ getDate(invoice.issued_date) }}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">DateOf Creation</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ getDate(invoice.issued_date) }}</div>
         </el-col>
         <el-col :span="7" :offset="1" >
-          <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Due Date</div>
-          <div style="color: #00000099;" class="fs-16">{{ getDate(invoice.due_date) }}</div>
+          <div style="color: #000000cc;padding-top:4px" class="fs-16 f-600">Due Date</div>
+          <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ getDate(invoice.due_date) }}</div>
         </el-col>
       </el-row>
     </el-card>
@@ -92,17 +96,17 @@
     </el-card>
     <el-card shadow='none' style="margin-top:-2px;border-top:none;background:#FCDFBD66">
         <el-row>
-            <el-col :span="4" :offset="1">
-                <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Sub total (INR)</div>
-                <div style="color: #00000099;" class="fs-16">{{ invoice.total_amount }}</div>
+            <el-col :span="window.width > 767 ? 4 : 7" :offset="1">
+                <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">SubTotal (INR)</div>
+                <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.total_amount }}</div>
             </el-col>
-            <el-col :span="4" :offset="1">
+            <el-col :span="window.width > 767 ? 4 : 7" :offset="1">
                 <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Amount Paid</div>
-                <div style="color: #00000099;" class="fs-16">{{ invoice.paid_amount }}</div>
+                <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.paid_amount }}</div>
             </el-col>
-            <el-col :span="4" :offset="1">
+            <el-col :span="window.width > 767 ? 4 : 7" :offset="1">
                 <div style="color: #000000cc;padding-bottom:10px" class="fs-16 f-600">Due Amount</div>
-                <div style="color: #00000099;" class="fs-16">{{ invoice.total_amount - invoice.paid_amount }}</div>
+                <div style="color: #00000099; padding-bottom:10px" class="fs-16">{{ invoice.total_amount - invoice.paid_amount }}</div>
             </el-col>
         </el-row>
     </el-card>
@@ -115,6 +119,7 @@
 </template>
 <script>
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
 export default {
     props: {
         invoice: {
@@ -122,6 +127,7 @@ export default {
             default: () => {}
         }
     },
+    mixins: [screenSize],
     data:()=>({
     }),
     created() {

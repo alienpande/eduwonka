@@ -16,19 +16,19 @@
       <br /><br /><br /><br />
       <el-row>
         <el-col :span="11">
-          <e-input v-model="vendor.contact_person" name="Contact person" placeholder="Enter contact person" rules="required" />
+          <e-input v-model="vendor.contact_person" class="mt10" name="Contact person" placeholder="Enter contact person" rules="required" />
         </el-col>
         <el-col :span="11" :offset="1">
-          <e-input v-model="vendor.contact_person_number" name="Phone Number" placeholder="Enter phone number" rules="required" />
+          <e-input v-model="vendor.contact_person_number" class="mt10" name="Phone Number" placeholder="Enter phone number" rules="required" />
         </el-col>
         <el-col :span="11">
-          <e-input v-model="vendor.gst_number" name="GST Number" placeholder="Enter GST Number" rules="required" />
+          <e-input v-model="vendor.gst_number" name="GST Number" class="mt10" placeholder="Enter GST Number" rules="required" />
         </el-col>
         <el-col :span="11" :offset="1">
-          <e-input v-model="vendor.tin_number" name="Tin Number" placeholder="Enter Tin Number" rules="required" />
+          <e-input v-model="vendor.tin_number" name="Tin Number" class="mt10" placeholder="Enter Tin Number" rules="required" />
         </el-col>
         <el-col :span="23">
-          <div style="color: #000000cc; font-size: 16px; font-weight: 600">
+          <div style="color: #000000cc; font-size: 16px; font-weight: 600" class="mt10">
             Address
           </div>
           <textarea class="details-expenses__textarea" v-model="vendor.address" placeholder="Enter Address" rows="4" cols="143" rules="required" />
@@ -50,7 +50,7 @@
         <e-date-picker v-model="invoice.due_date" type="date" name="Due Date" placeholder="Pick a Date" align="right" @change="changeDueDate" format="MM/dd/yyyy" rules="required" />
       </el-col>
     </el-card>
-    <div class="heading" style="margin-top: 0">
+    <div class="heading mt10">
       <span class="mg-l-35">Invoice Item Details</span>
     </div>
     <div class="invoice-add">
@@ -80,17 +80,17 @@
             <e-svg icon="close2" v-show="invoiceItems.length > 1" @click="deleteSection(i)" css="h35 mt30" />
           </el-col>
         </el-row>
-        <e-button label="Add Item" :plain="true" style="margin-left: 30px" icon="el-icon-plus" @click="addMore" />
+        <e-button label="Add Item" class="mt10 mb10" :plain="true" style="margin-left: 30px" icon="el-icon-plus" @click="addMore" />
         <br /><br /><br />
         <el-row style="background: #fcdfbd66; padding: 20px 10px">
-          <el-col :span="4" :offset="1">
+          <el-col :span="window.width > 767 ? 4 : 7" :offset="1">
             <div class="label">Sub total (INR)</div>
             <div style="color: #888888; font-size: 16px" >{{ setTotalAmount() }}</div>
           </el-col>
-          <el-col :span="4" :offset="1">
+          <el-col :span="window.width > 767 ? 4 : 7" :offset="1">
             <e-input v-model="invoice.paid_amount" name="Amount Paid" />
           </el-col>
-          <el-col :span="4" :offset="1">
+          <el-col :span="window.width > 767 ? 4 : 7" :offset="1">
             <div class="label">Balance Due</div>
             <div style="color: #888888; font-size: 16px">{{ setTotalAmount() - invoice.paid_amount || 0 }}</div>
           </el-col>
@@ -106,7 +106,9 @@
 </template>
 <script>
 import { dispatchGraphql, dispatchGraphqlMutation } from '@/api/dispatcher'
+import screenSize from '@/mixins/screenSize'
 export default {
+  mixins: [screenSize],
   data: () => ({
     vendors: [],
     invoice: {},

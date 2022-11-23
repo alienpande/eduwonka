@@ -1,15 +1,15 @@
 <template>
   <div>
     <div style="padding: 20px; padding-right: 50px; overflow: auto; height: 80vh" class="sm-p-r-20">
-      <el-row style="display: flex; padding: 15px" class="sm-d-c sm-items-center">
-        <el-col :span="16" style="display: flex" class="sm-width-100 sm-items-center">
+      <el-row :style="window.width > 767 ? 'display: flex; padding: 15px' : ''" class="sm-d-c sm-items-center">
+        <el-col :span="window.width > 767 ? 16 : 24" style="display: flex" class="sm-width-100 sm-items-center">
           <e-svg @click="$router.push($url.FI_PAYSLIP_EMPLOYEE_DETAILS)" icon="back"></e-svg>
           <div style="color: #11141a; font-weight: 500; font-size: 24px; opacity: 0.8; margin-top: 7px; margin-left: 20px;">
             Employee Payslip Details
           </div>
         </el-col>
-        <el-col :span="3" :offset="4" class="sm-margin-l-0 sm-width-auto">
-          <e-button label="Change Employee" :plain="true" css="sort-icon" class="sm-width-auto">
+        <el-col :span="window.width > 767 ? 3 : 24" :offset="window.width > 767 ? 4 : 0" class="sm-margin-l-0 sm-width-auto">
+          <e-button label="Change Employee" :class="window.width > 767 ? '' : 'my20'" :plain="true" css="sort-icon" class="sm-width-auto">
           </e-button>
         </el-col>
       </el-row>
@@ -17,10 +17,10 @@
         Employee Details
       </div>
       <el-row style="background: white; padding: 20px" class="sm-flex sm-wrap sm-justify-center">
-        <el-col :span="4" :offset="1" class="sm-width-50 sm-margin-l-0">
+        <el-col :span="window.width > 767 ? 4 : 24" :offset="window.width > 767 ? 1 : 0" class="sm-width-50 sm-margin-l-0">
           <el-avatar :size="93" :src="require('@/assets/images/profile.jpg')" />
         </el-col>
-        <el-col :span="13" :offset="1" class="sm-width-50 sm-margin-l-0">
+        <el-col :span="window.width > 767 ? 13 : 24" :offset="window.width > 767 ? 1 : 0" class="sm-width-50 sm-margin-l-0">
           <div style="background: #fcdfbd33;padding:15px">
             <div class="f-600 fs-16" style="color: #000000cc;margin-bottom:5px">
               {{ employee.first_name }}
@@ -30,8 +30,8 @@
             <div style="color: #00000099">{{ employee.designation ? employee.designation.designation_type : '' }}</div>
           </div>
         </el-col>
-        <el-col :span="3" :offset="1" class="sm-width-auto sm-margin-l-0 sm-margin-t-[-40px]">
-            <br/>  <br/>  <br/>
+        <el-col :span="window.width > 767 ? 3 : 24" :offset="window.width > 767 ? 1 : 0" class="sm-width-auto sm-margin-l-0 sm-margin-t-[-40px]">
+            <br/>  <br v-if="window.width > 767" />  <br v-if="window.width > 767" />
             <e-button label="Create Payslip" icon="el-icon-plus" @click="handleSlip" />
         </el-col>
       </el-row>
@@ -40,7 +40,7 @@
         All Payslips of Employee
       </div>
       <el-row :gutter="20" style="padding: 15px 0px 10px 0px; margin: 0px 0px 5px 0px; background: white; height: 80px;" class="finance-payslip">
-        <el-col :span="5" style="padding-left: 5px" class="dropdown-tab">
+        <el-col :span="window.width > 767 ? 5 : 6" style="padding-left: 5px" class="dropdown-tab">
           <!-- <e-dropdown :list="filter" primary /> -->
           <el-dropdown @command="handleMonth">
             <span class="el-dropdown-link primary-text text" primary>
@@ -51,7 +51,7 @@
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
-        <el-col :span="5" style="padding-left: 25px" class="primary-text dropdown-tab">
+        <el-col :span="window.width > 767 ? 5 : 6" style="padding-left: 25px" class="primary-text dropdown-tab">
           <!-- <e-dropdown :list="filter2" primary /> -->
           <el-dropdown @command="handleYear">
             <span class="el-dropdown-link primary-text text" primary>
@@ -66,7 +66,7 @@
         <el-col :span="4" class="primary-text dropdown-tab">
           <div @click="clearFilters()" class="text">Clear filter</div>
         </el-col>
-        <el-col style="padding-left: 10px" :span="1" :offset="6">
+        <el-col style="padding-left: 10px" :span="window.width > 767 ? 1 : 6" :offset="window.width > 767 ? 6 : 0">
           <e-button icon="el-icon-search" :plain="true" css="bg-tranparent"></e-button>
         </el-col>
       </el-row>
@@ -91,8 +91,10 @@
 import { dispatchGraphql, dispatchGraphqlQuery } from "@/api/dispatcher"
 import moment from 'moment'
 import esPagination from '@/studentControl/esPagination'
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { esPagination },
+  mixins: [screenSize],
   data: () => ({
     employee: {},
     campus: {},
