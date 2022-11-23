@@ -5,7 +5,7 @@
         <e-input class="custom-input" v-model="slip.name" label="Slip name" placeholder="Enter Name/Purpose">
         </e-input>
       </el-col>
-      <el-col :span="6" :offset="1">
+      <el-col :span="8" :offset="1">
         <e-date-picker class="custom-date-picker" v-model="slip.due_date" label="Set due date" placeholder="Pick a Date" @change="changeDate" format="MM/dd/yyyy">
         </e-date-picker>
       </el-col>
