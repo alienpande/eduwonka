@@ -1,6 +1,6 @@
 <template>
-  <el-row :gutter="20">
-    <el-col v-for="(appointment, i) of appointments" :key="i" class="cp mg-b-10" :span="7" :offset="1">
+  <el-row :gutter="20" :style="{display: window.width < 767 && 'grid'}">
+    <el-col v-for="(appointment, i) of appointments" :key="i" class="cp mg-b-10" :span="window.width > 767 ? 7 : 24" :offset="window.width > 767 ? 1 : 0">
       <el-card shadow="none" style="padding:10px;">
         <div style="color: #000000; opacity: 0.8" class="fs-20 f-600"  @click="$emit('cliks', appointment)">
           {{ appointment.title }}
@@ -29,7 +29,10 @@
 </template>
 <script>
 import moment from 'moment'
+import screenSize from "@/mixins/screenSize"
+
 export default {
+  mixins: [screenSize],
   props: {
     appointments: {
       type: Array,
