@@ -28,15 +28,15 @@
     </div>
     <el-card shadow="none">
      <el-row>
-        <el-col :span="5" >
+        <el-col :span="window.width > 767 ? 5 : 6" >
           <div style="color: #000000cc; padding-bottom: 10px" class="fs-16 f-600">Approved by</div>
           <!-- <div style="color: #00000099" class="fs-16">{{ invoice.approval_recommendation.user.first_name }}</div> -->
         </el-col>
-         <el-col :span="5" >
+         <el-col :span="window.width > 767 ? 5 : 6" >
           <div style="color: #000000cc; padding-bottom: 10px" class="fs-16 f-600">Payment Status</div>
           <div style="color: #00000099" class="fs-16">{{ invoice.status === 'Paid' ? 'Paid' : 'Pending' }}</div>
         </el-col>
-         <el-col :span="5" >
+         <el-col :span="window.width > 767 ? 5 : 6" >
           <div style="color: #000000cc; padding-bottom: 10px" class="fs-16 f-600">Payment Date</div>
           <div style="color: #00000099" class="fs-16">{{ getDate(invoice.updated_at) }}</div>
         </el-col>
@@ -76,14 +76,17 @@
       </div>
     </el-card>
     <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-      <e-button :span="18" label="Cancel" width="180" type="text" class="p-45 cancel-button-margin" />
-      <e-button :span="3" label="Download" width="180" @click="handleClick" css="float-right" class="p-45" />
+      <e-button :span="window.width > 767 ? 18 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45' : 'pr-45 pl-45'" class="cancel-button-margin" />
+      <e-button :span="window.width > 767 ? 18 : 12" label="Download" width="180" @click="handleClick" css="float-right" :class="window.width > 767 ? 'p-45' : 'pr-45 pl-45'" />
     </el-row>
   </div>
 </template>
 <script>
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
+
 export default {
+  mixins: [screenSize],
   props: {
     invoice: {
       type: Object,

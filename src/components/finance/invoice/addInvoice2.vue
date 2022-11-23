@@ -38,16 +38,18 @@
     </div>
     <file-upload style="margin-left: 50px" />
     <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-      <e-button :span="18" label="Cancel" width="180" type="text" class="p-45 cancel-button-margin" />
-      <e-button :span="3" label="Proceed" width="180" @click="update" css="float-right" class="p-45" />
+      <e-button :span="window.width > 767 ? 18 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45' : 'pr-45 pl-45'" class="cancel-button-margin" />
+      <e-button :span="window.width > 767 ? 18 : 12" label="Proceed" width="180" @click="update" css="float-right" :class="window.width > 767 ? 'p-45' : 'pr-45 pl-45'" />
     </el-row>
   </div>
 </template>
 <script>
 import fileUpload from "@/components/finance/fileUploaded.vue";
 import { dispatchGraphql, dispatchGraphqlMutation} from "@/api/dispatcher"
+import screenSize from '@/mixins/screenSize'
 
 export default {
+  mixins: [screenSize],
   props: {
     invoiceId: {
       type: String,
