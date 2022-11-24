@@ -22,6 +22,7 @@
       <div
         class="library-edit-catalog-info"
         style="display: flex; justify-content: center"
+        :style="{'margin-top': window.width < 767 && '45px'}"
       >
         <div class="imageDivStyle">
           <e-svg class="edit-pen" icon="editpens"></e-svg>

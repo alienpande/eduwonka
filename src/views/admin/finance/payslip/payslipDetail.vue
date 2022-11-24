@@ -40,7 +40,7 @@
         All Payslips of Employee
       </div>
       <el-row :gutter="20" style="padding: 15px 0px 10px 0px; margin: 0px 0px 5px 0px; background: white; height: 80px;" class="finance-payslip">
-        <el-col :span="window.width > 767 ? 5 : 6" style="padding-left: 5px" class="dropdown-tab">
+        <el-col :span="window.width > 767 ? 5 : 5" :style="{'padding-left': window.width < 767 ? '0px !important' : '5px'}" style="padding-left: 5px" class="dropdown-tab">
           <!-- <e-dropdown :list="filter" primary /> -->
           <el-dropdown @command="handleMonth">
             <span class="el-dropdown-link primary-text text" primary>
@@ -51,7 +51,7 @@
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
-        <el-col :span="window.width > 767 ? 5 : 6" style="padding-left: 25px" class="primary-text dropdown-tab">
+        <el-col :span="window.width > 767 ? 5 : 5" :style="{'padding-left': window.width < 767 ? '0px !important' : '25px'}" class="primary-text dropdown-tab">
           <!-- <e-dropdown :list="filter2" primary /> -->
           <el-dropdown @command="handleYear">
             <span class="el-dropdown-link primary-text text" primary>
@@ -66,7 +66,7 @@
         <el-col :span="4" class="primary-text dropdown-tab">
           <div @click="clearFilters()" class="text">Clear filter</div>
         </el-col>
-        <el-col style="padding-left: 10px" :span="window.width > 767 ? 1 : 6" :offset="window.width > 767 ? 6 : 0">
+        <el-col :style="{'padding-left': window.width < 767 ? '0px !important' : '10px'}" :span="window.width > 767 ? 1 : 4" :offset="window.width > 767 ? 6 : 0">
           <e-button icon="el-icon-search" :plain="true" css="bg-tranparent"></e-button>
         </el-col>
       </el-row>

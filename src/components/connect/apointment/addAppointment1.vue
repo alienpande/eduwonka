@@ -1,22 +1,22 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="5">
+      <el-col :span="window.width > 767 ? 5 : 24">
         <e-input v-model="appointment.title" class="custom-input" label="Name of the appointment" placeholder="Enter Name" />
       </el-col>
-      <el-col :span="5" :offset="2">
-        <e-date-picker :span="12" v-model="appointment.start_time" type="datetime" name="Set Date" placeholder="Pick a Date" @change="changeDate" format="MM/dd/yyyy hh:mm:ss" />
+      <el-col :style="{'margin-top': window.width < 767 && '3px' }" :span="window.width > 767 ? 5 : 24" :offset="window.width > 767 && 2">
+        <e-date-picker :span="window.width > 767 ? 12 : 24" v-model="appointment.start_time" type="datetime" name="Set Date" placeholder="Pick a Date" @change="changeDate" format="MM/dd/yyyy hh:mm:ss" />
       </el-col>
-      <el-col :span="6" :offset="1">
+      <el-col :style="{height: window.width < 767 && '56px' }" :span="window.width > 767 ? 6 : 24" :offset="window.width > 767 && 1">
         <br />
         <div style="display: flex; margin-top: 10px">
-          <e-checkbox :span="12" text="No, Set Infinite Date" v-model="appointment.reccuring" />
+          <e-checkbox :span="window.width > 767 ? 12 : 24" text="No, Set Infinite Date" v-model="appointment.reccuring" />
         </div>
       </el-col>
     </el-row>
     <el-row>
-    <el-col :span="5" class="channel-1-select">
-      <e-select :span="12" label="Location" placeholder="Choose Location" :v-model="appointment.location" :options="locations" :optionName="'label'" :valueKey="'value'" @visible-change="setLocation" />
+    <el-col :span="window.width > 767 ? 5 : 24" class="channel-1-select">
+      <e-select :span="window.width > 767 ? 12 : 24" label="Location" placeholder="Choose Location" :v-model="appointment.location" :options="locations" :optionName="'label'" :valueKey="'value'" @visible-change="setLocation" />
       <br /><br /><br /><br />
       <div style="display: inline-flex">
         <e-svg icon="Group" />
@@ -28,9 +28,9 @@
     </el-col>
     </el-row>
     <el-row class="channel-1-btns" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-      <el-col style="float: right" :span="10">
-        <e-button :span="15" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" ></e-button>
-        <e-button :span="8" label="Create appointment" width="210" @click="submit()" css="float-right" class="p-45" ></e-button>
+      <el-col style="float: right" :span="window.width > 767 && 10">
+        <e-button :span="window.width > 767 ? 15 : 12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : 'pr-45 pl-45'" ></e-button>
+        <e-button :span="window.width > 767 ? 8 : 12" label="Create appointment" width="210" @click="submit()" css="float-right" :class="window.width > 767 ? 'p-45' : 'pr-45 pl-45'"></e-button>
       </el-col>
     </el-row>
   </div>
@@ -39,7 +39,10 @@
 import { dispatchGraphqlMutation, dispatchGraphql } from "@/api/dispatcher"
 import { getId } from '@/util/auth'
 import moment from 'moment'
+import screenSize from "@/mixins/screenSize"
+
 export default {
+  mixins: [screenSize],
   components: {},
   data() {
     return {

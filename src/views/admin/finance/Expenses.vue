@@ -20,7 +20,7 @@
           </el-row>
 
           <el-row class="finance-expenses-menu-wraper" v-if="!searchBar" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
-            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab ">
+            <el-col :style="{padding: window.width < 767 && '0px !important'}" :span="window.width > 767 ? 5 : 7" class="dropdown-tab ">
               <!-- <e-dropdown :list="categories" primary /> -->
               <el-dropdown @command="handleCategory">
                 <span class="el-dropdown-link" primary>
@@ -34,7 +34,7 @@
             <!-- <el-col :span="7" :offset="1" class="primary-text data-range__dropdown dropdown-tab">
               <e-dropdown :list="filter2" primary />
             </el-col> -->
-            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab ">
+            <el-col :style="{padding: window.width < 767 && '0px !important'}" :span="window.width > 767 ? 5 : 8" class="dropdown-tab ">
               <!-- <e-dropdown :list="filter3" primary /> -->
               <el-dropdown @command="handlePrice">
                 <span class="el-dropdown-link text" primary>
@@ -45,10 +45,10 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
-            <el-col :span="window.width > 767 ? 3 : 5" class="primary-text dropdown-tab">
+            <el-col :style="{padding: window.width < 767 && '0px !important'}" :span="window.width > 767 ? 3 : 6" class="primary-text dropdown-tab">
               <div class="text" @click="getCategories()">Clear filter</div>
             </el-col>
-            <el-col style="padding-left: 10px" :span="1" :offset="1">
+            <el-col :style="{padding: window.width > 767 ? '10px' : '0'}" :span="1" :offset="window.width > 767 && 1">
               <e-button @click="searchBar = !searchBar" icon="el-icon-search" :plain="true" css="bg-tranparent" />
             </el-col>
           </el-row>
@@ -92,7 +92,7 @@
           </el-row>
 
           <el-row class="finance-expenses-menu-wraper" v-if="!searchBar" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;">
-            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab">
+            <el-col :style="{padding: window.width < 767 && '0px !important'}" :span="window.width > 767 ? 5 : 7" class="dropdown-tab">
               <!-- <e-dropdown :list="categories" primary /> -->
               <el-dropdown @command="handleCategory">
                 <span class="el-dropdown-link" primary>
@@ -106,7 +106,7 @@
             <!-- <el-col :span="7" :offset="1" class="primary-text data-range__dropdown dropdown-tab">
               <e-dropdown :list="filter2" primary />
             </el-col> -->
-            <el-col :span="window.width > 767 ? 5 : 6" class="dropdown-tab">
+            <el-col :style="{padding: window.width < 767 && '0px !important'}" :span="window.width > 767 ? 5 : 8" class="dropdown-tab">
               <!-- <e-dropdown :list="filter3" primary /> -->
               <el-dropdown @command="handlePrice">
                 <span class="el-dropdown-link text finance-expenses" primary >
@@ -117,10 +117,10 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
-            <el-col :span="window.width > 767 ? 3 : 5" class="primary-text dropdown-tab">
+            <el-col :style="{padding: window.width < 767 && '0px !important'}" :span="window.width > 767 ? 3 : 5" class="primary-text dropdown-tab">
               <div class="text" @click="getCategories()">Clear filter</div>
             </el-col>
-            <el-col style="padding-left: 10px" :span="1" :offset="1">
+            <el-col :style="{padding: window.width > 767 ? '10px' : '0'}" style="padding-left: 10px" :span="1" :offset="window.width > 767 && 1">
               <e-button @click="searchBar = !searchBar" icon="el-icon-search" :plain="true" css="bg-tranparent" />
             </el-col>
           </el-row>

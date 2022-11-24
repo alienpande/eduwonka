@@ -6,7 +6,7 @@
           <div class="sub-headers">
           </div>
           <el-row class="finance-invoice " :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;display:flex;align-items:center;">
-            <el-col :span="5" class="dropdown-tab" style="padding-left: 15px">
+            <el-col :span="window.width > 767 ? 5 : 7" class="dropdown-tab" style="padding-left: 15px">
               <!-- <e-dropdown :list="filter" primary /> -->
               <el-dropdown @command="handleVendor">
                 <span class="el-dropdown-link primary-text text" primary>
@@ -18,7 +18,7 @@
               </el-dropdown>
             </el-col>
             
-            <el-col :span="window.width > 767 ? 5 : 6" style="padding-left: 25px" class="dropdown-tab">
+            <el-col :span="window.width > 767 ? 5 : 7" style="padding-left: 25px" class="dropdown-tab">
               <!-- <e-dropdown :list="filter2" primary -->
               <el-dropdown @command="handleStatus">
                 <span class="el-dropdown-link primary-text text" primary>
@@ -70,7 +70,7 @@
           <div class="sub-headers"> 
           </div>
           <el-row class="finance-invoice" :gutter="20" style="padding: 15px 0px 10px 0px;margin: 0px 0px 5px 0px;background: white;height: 80px;display:flex;align-items:center;">
-            <el-col :span="5" class="dropdown-tab" style="padding-left: 15px">
+            <el-col :span="window.width > 767 ? 5 : 7" class="dropdown-tab" style="padding-left: 15px">
               <!-- <e-dropdown :list="filter" primary /> -->
               <el-dropdown @command="handleVendor">
                 <span class="el-dropdown-link primary-text text" primary>
@@ -82,7 +82,7 @@
               </el-dropdown>
             </el-col>
             
-            <el-col :span="3" class="primary-text">
+            <el-col :span="window.width > 767 ? 3 : 6" class="primary-text">
               <div class="text" @click="getusers()">Clear filter</div>
             </el-col>
             <el-col style="padding-left: 10px" :span="1" :offset="2">

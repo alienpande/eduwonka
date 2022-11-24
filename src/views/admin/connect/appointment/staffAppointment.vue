@@ -9,7 +9,7 @@
                 {{ setAppointments('activeCount') }} appointments
               </div>
             </el-col>
-            <el-col :span="3" :offset="16">
+            <el-col :span="window.width > 767 ? 3 : 6" :offset="window.width > 767 ? 16 : 9">
               <e-dropdown :list="filter" primary />
             </el-col>
             <el-col style="padding-left: 10px" :span="1">
@@ -27,7 +27,7 @@
                 {{ setAppointments('upcomingCount') }} appointments
               </div>
             </el-col>
-            <el-col :span="3" :offset="16">
+            <el-col :span="window.width > 767 ? 3 : 6" :offset="window.width > 767 ? 16 : 9">
               <e-dropdown :list="filter" primary />
             </el-col>
             <el-col style="padding-left: 10px" :span="1">
@@ -45,7 +45,7 @@
                 {{ setAppointments('pastCount') }} appointments
               </div>
             </el-col>
-            <el-col :span="3" :offset="16">
+            <el-col :span="window.width > 767 ? 3 : 6" :offset="window.width > 767 ? 16 : 9">
               <e-dropdown :list="filter" primary />
             </el-col>
             <el-col style="padding-left: 10px" :span="1">
@@ -69,8 +69,11 @@ import pastDetail from '@/components/connect/apointment/pastDetail.vue'
 import { dispatchGraphql } from '@/api/dispatcher'
 import { getId } from '@/util/auth'
 import moment from 'moment'
+import screenSize from "@/mixins/screenSize"
+
 export default {
   components:{ staffCard, pastDetail },
+  mixins: [screenSize],
   data: () => ({
     showSideBar: false,
     actives: false,

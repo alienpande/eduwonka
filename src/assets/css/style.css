@@ -2557,6 +2557,9 @@ main.el-main.body > .heading:first-child{
   .sm-margin-t-40{
     margin-top: 40px;
   }
+  .el-pagination__jump {
+    display: none !important;
+  }
   .econtainer>.body{
     padding: 30px 20px 65px 20px !important;
     height: calc(100vh - 260px);

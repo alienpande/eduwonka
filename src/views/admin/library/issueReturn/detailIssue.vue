@@ -2,7 +2,7 @@
   <div>
     <e-container hideHeader pageTitle="View details of issue" :back="$url.LI_ISSUE_RETURN">
       <e-button label="View Book Details" css="sort-icon view-book__details" :plain="true" @click="$router.push($url.LI_EDIT_CATALOG + '/' + issueDetail.book.id)"></e-button>
-      <el-card style="width: 359px; display: block; margin: auto">
+      <el-card style="width: 359px; display: block; margin: auto" :style="{'margin-top': window.width < 767 && '55px'}">
         <el-row>
           <el-col :span="7">
             <img style="width: 79px; height: 103px" src="@/assets/images/book.png" alt="" />
@@ -68,7 +68,10 @@
 <script>
 import { dispatchGraphql } from "@/api/dispatcher"
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
+
 export default {
+  mixins: [screenSize],
   data:()=>({
     issueDetail: {}
   }),
