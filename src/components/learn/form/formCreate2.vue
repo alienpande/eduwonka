@@ -43,10 +43,10 @@
           <e-button @click="dialog = true" class="btn pd-10" :span="4" icon="el-icon-plus" label="Add Question" />
         <!-- </el-col> -->
       </el-row>
-      <el-row style="border-top: 1px solid #fcdfbd; margin-top: 20px" class="form-last-buttons">
+      <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
         <!-- <el-col style="float: right" :span="9"> -->
-          <e-button :span="15" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" />
-          <e-button :span="8" label="Proceed" width="180" @click="handleClick" css="float-right" class="p-45" />
+          <e-button :span="window.width > 767 ? 15 : 12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" />
+          <e-button :span="window.width > 767 ? 8 : 12" label="Proceed" width="180" @click="handleClick" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" />
         <!-- </el-col> -->
       </el-row>
     </div>
@@ -56,8 +56,10 @@
 import quesCreate1 from "@/components/learn/form/quesCreate1.vue"
 import quesCreate2 from "@/components/learn/form/quesCreate2.vue"
 import { dispatchGraphql, dispatchGraphqlMutation } from "@/api/dispatcher"
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { quesCreate1, quesCreate2 },
+  mixins: [screenSize],
   props: {
     formId: {
       type: String,

@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div style="padding-left: 30px">
-      <div class="bg-white pd-15 tx-semibold">
+    <div :style="window.width > 767 ? 'padding-left: 30px' : ''">
+      <div :class="window.width > 767 ? 'bg-white pd-15 tx-semibold' : ''">
         <component :is="questionType" @changeFormField="changeFormField" @handleSubmit="handleSubmit" />
       </div>
     </div>
-  </div>
 </template>
 <script>
 import chooseSingle from '@/components/learn/forms_components/chooseSingle'
@@ -14,6 +12,7 @@ import shortAnswer from '@/components/learn/forms_components/shortAnswer'
 import longAnswer from '@/components/learn/forms_components/longAnswer'
 import dropDown from '@/components/learn/forms_components/dropDown'
 import uploadAttachment from '@/components/learn/forms_components/uploadAttachment'
+import screenSize from '@/mixins/screenSize'
   export default {
     components: {
       chooseSingle,
@@ -23,6 +22,7 @@ import uploadAttachment from '@/components/learn/forms_components/uploadAttachme
       dropDown,
       uploadAttachment
     },
+    mixins: [screenSize],
     props: {
       questionType: {
         type: String,

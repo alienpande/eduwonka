@@ -70,15 +70,10 @@
             </el-row>
           </el-col>
         </el-row>
-       
-        <el-row style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;" class="form-last-buttons">
-          <!-- <el-col class="float-left" :span="12"> -->
-            <e-button :span="8" label="Proceed" width="180" css="float-right" class="p-45" @click="createAudience" />
-          <!-- </el-col> -->
-          <!-- <el-col class="float-right" :span="10"> -->
-            <e-button :span="15" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" @click="activeName = 'teacher'" />
-            <e-button :span="8" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'teacher'" />
-          <!-- </el-col> -->
+        <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-top: 15px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
+            <e-button :span="window.width > 767 ? 8 : 12" label="Proceed" width="180" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" @click="createAudience" />
+            <e-button :span="window.width > 767 ? 15 : 12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'teacher'" />
+            <e-button :span="8" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : 'mt20'" @click="activeName = 'teacher'" />
         </el-row>
     
       </el-tab-pane>
@@ -119,14 +114,10 @@
           </el-col>
         </el-row>
        
-        <el-row style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;" class="form-last-buttons">
-          <!-- <el-col class="float-left" :span="12"> -->
-            <e-button :span="8" label="Proceed" width="180" css="float-right" class="p-45" @click="createAudience" />
-          <!-- </el-col> -->
-          <!-- <el-col class="float-right" :span="10"> -->
-            <e-button :span="15" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" @click="activeName = 'management'" />
-            <e-button :span="8" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'management'" />
-          <!-- </el-col> -->
+        <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-top: 15px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
+            <e-button :span="window.width > 767 ? 8 : 12" label="Proceed" width="180" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" @click="createAudience" />
+            <e-button :span="window.width > 767 ? 15 : 12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'management'" />
+            <e-button :span="8" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : 'mt20'" @click="activeName = 'management'" />
         </el-row>
       </el-tab-pane>
       <el-tab-pane label="Management" name="management">
@@ -165,15 +156,10 @@
             </el-row>
           </el-col>
         </el-row>
-       
-        <el-row style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;" class="form-last-buttons">
-          <!-- <el-col class="float-left" :span="12"> -->
-            <e-button :span="8" label="Proceed" width="180" css="float-right" class="p-45" @click="createAudience" />
-          <!-- </el-col> -->
-          <!-- <el-col class="float-right" :span="10"> -->
-            <e-button :span="15" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" @click="activeName = 'nonTeaching'" />
-            <e-button :span="8" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'nonTeaching'" />
-          <!-- </el-col> -->
+        <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-top: 15px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
+            <e-button :span="window.width > 767 ? 8 : 12" label="Proceed" width="180" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" @click="createAudience" />
+            <e-button :span="window.width > 767 ? 15 : 12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'nonTeaching'" />
+            <e-button :span="8" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : 'mt20'" @click="activeName = 'nonTeaching'" />
         </el-row>
       </el-tab-pane>
       <el-tab-pane label="Non - teaching staff" name="nonTeaching">
@@ -212,25 +198,17 @@
             </el-row>
           </el-col>
         </el-row>
-       
-        <el-row style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;" class="form-last-buttons">
-          <!-- <el-col class="float-left" :span="12"> -->
-            <e-button :span="8" label="Proceed" width="180" css="float-right" class="p-45" @click="createAudience" />
-          <!-- </el-col> -->
-          <!-- <el-col class="float-right" :span="10"> -->
-            <e-button :span="15" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" @click="activeName = 'group'" />
-            <e-button :span="8" label="Next" width="180" css="float-right" class="p-45" @click="activeName = 'group'" />
-          <!-- </el-col> -->
+        <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;' : 'border-top: 1px solid #fcdfbd;margin-top: 20px;padding-top: 15px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
+            <e-button :span="window.width > 767 ? 8 : 12" label="Proceed" width="180" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" @click="createAudience" />
+            <e-button :span="window.width > 767 ? 15 : 12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" @click="activeName = 'group'" />
+            <e-button :span="8" label="Next" width="180" css="float-right" :class="window.width > 767 ? 'p-45' : 'mt20'" @click="activeName = 'group'" />
         </el-row>
       </el-tab-pane>
       <el-tab-pane label="Group" name="group">
-    
-        <el-row style="border-top: 1px solid #fcdfbd;margin-top: 20px;padding-bottom: 15px;" class="form-last-buttons" >
-          <!-- <el-col class="float-right" :span="10"> -->
-            <e-button :span="15" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" ></e-button>
-            <e-button :span="8" label="Proceed" width="180" css="float-right" class="p-45" @click="createAudience()" ></e-button>
-          <!-- </el-col> -->
-        </el-row>
+        <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
+          <e-button :span="window.width > 767 ? 15 : 12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" />
+          <e-button :span="window.width > 767 ? 8 : 12" label="Proceed" width="180" @click="createAudience()" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" />
+      </el-row>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -238,8 +216,10 @@
 <script>
 import selectionCard from "@/components/school/EventCalender/selectionCard.vue"
 import { dispatchGraphql } from '@/api/dispatcher'
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { selectionCard },
+  mixins: [screenSize],
   props: {
     formId: {
       type: String,

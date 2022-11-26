@@ -42,10 +42,10 @@
       <img class="help-black" style="width: 24px; height: 26px; margin: 17px 9px 0 0" src="@/assets/images/iBlack.png" alt="" />
     </div> -->
     </div>
-    <el-row style="border-top: 1px solid #fcdfbd; margin-top: 20px" class="form-last-buttons">
+    <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
       <!-- <el-col style="float: right" :span="20"> -->
-        <e-button :span="12" label="Cancel" width="180" css="cancel_btn" type="default" class="p-45" />
-        <e-button :span="8" label="Proceed" width="180" @click="handleClick" css="float-right" class="p-45" />
+        <e-button :span="12" label="Cancel" width="180" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" />
+        <e-button :span="window.width > 767 ? 8 : 12" label="Proceed" width="180" @click="handleClick" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" />
       <!-- </el-col> -->
     </el-row>
   </div>

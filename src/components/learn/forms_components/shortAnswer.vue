@@ -44,18 +44,20 @@
         </div>
       </el-col>
     </el-row>
-    <el-row style="border-top: 1px solid #fcdfbd; margin-top: 20px" class="form-last-buttons">
-      <!-- <el-col style="float: right" :span="9"> -->
-        <e-button :span="15" label="Delete" width="180" @click="handleDelete" css="cancel_btn" type="default" class="p-45" />
-        <e-button :span="8" label="Save" width="180" @click="handleSubmit" css="float-right" class="p-45" />
-      <!-- </el-col> -->
-    </el-row>
+    <el-row :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'" :class="window.width > 767 ? 'form-last-buttons' : ''">
+        <!-- <el-col style="float: right" :span="9"> -->
+          <e-button :span="window.width > 767 ? 15 : 12" label="Delete" width="180" @click="handleDelete" css="cancel_btn" type="default" :class="window.width > 767 ? 'p-45' : ''" />
+          <e-button :span="window.width > 767 ? 8 : 12" label="Save" width="180" @click="handleSubmit" :css="window.width > 767 ? 'float-right' : ''" :class="window.width > 767 ? 'p-45' : ''" />
+        <!-- </el-col> -->
+      </el-row>
   </div>
 </template>
 
 <script>
+import screenSize from '@/mixins/screenSize'
 export default {
   name: 'FormPage',
+  mixins: [screenSize],
   directives: {},
   components: {
   },
