@@ -4,16 +4,16 @@
       <span class="mg-l-45">Bank Details</span>
     </div>
     <el-card shadow="none" style="padding: 8px; margin: 0 40px" class="rounded-08 pg-50 cp hover-shadow sm-mx-0">
-      <el-col :span="11">
+      <el-col :span="window.width > 767 ? 11 : 24">
         <e-input v-model="bankDetails.account_no" name="Account Number"></e-input>
       </el-col>
-      <el-col :span="11" :offset="1">
+      <el-col :span="window.width > 767 ? 11 : 24" :offset="window.width > 767 ? 1 : 0">
         <e-input v-model="bankDetails.ifsc_code" name="IFSC Code"></e-input>
       </el-col>
-      <el-col :span="11">
+      <el-col :span="window.width > 767 ? 11 : 24">
         <e-input v-model="bankDetails.bank_name" name="Branch Name" placeholder="lorem" ></e-input>
       </el-col>
-      <el-col :span="11" :offset="1">
+      <el-col :span="window.width > 767 ? 11 : 24" :offset="window.width > 767 ? 1 : 0">
         <e-input v-model="bankDetails.account_holder" name="Account Holder Name" placeholder="0121-288128" ></e-input>
       </el-col>
     </el-card>

@@ -21,7 +21,7 @@
     </el-card>
 
     <el-row>
-      <el-col :span="11">
+      <el-col :span="window.width > 767 ? 11 : 24">
         <div class="heading">Timeline</div>
         <el-card shadow="none">
           <div class="label f-600">Duration</div>
@@ -30,7 +30,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="11" :offset="1">
+      <el-col :span="window.width > 767 ? 11 : 24" :offset="window.width > 767 ? 1 : 0">
         <div class="heading">Repeat</div>
         <el-card shadow="none">
           <el-row>
@@ -73,12 +73,14 @@
 </template>
 <script>
 import { dispatchGraphql } from '@/api/dispatcher'
+import screenSize from '@/mixins/screenSize'
 // import { getId } from '@/util/auth'
 import moment from 'moment'
 export default {
   data: () => ({
     taskDetails: {},
   }),
+  mixins: [screenSize],
   created() {
     this.getTask()
   },

@@ -12,10 +12,12 @@ import viewVendor2 from '@/components/finance/vendor/viewVendor2.vue'
 import viewVendor3 from '@/components/finance/vendor/viewVendor3.vue'
 import { dispatchGraphql } from '@/api/dispatcher'
 import { mapMutations } from "vuex"
+import screenSize from '@/mixins/screenSize'
 
 // import SubjectYearInput from "@/components/hq/Employee/SubjectYear.Input.vue";
 export default {
   components: { viewVendor1, viewVendor2, viewVendor3 },
+  mixins: [screenSize],
   data() {
     return {
       activeTab: 1,

@@ -14,15 +14,15 @@
           </div>
           <div style="color: #00000099" class="fs-16">{{ student.first_name }}</div>
         </el-col>
-        <el-col :span="2" :offset="10">
+        <el-col :span="2" :offset="window.width > 767 ? 10 : 5">
           <e-button label="Edit" @click="$router.push($url.FI_FEE_RECEIPTS_DETAILS)" :plain="true" />
         </el-col>
       </el-row>
-      <div class="card" style="display: flex; justify-content: space-between; margin: 20px 90px 0px 11px">
+      <div class="card" :style="window.width > 767 ? 'display: flex; justify-content: space-between; margin: 20px 90px 0px 11px' : ''">
         <receipts-card v-for="(receipts, i) in receiptscard" :key="i" :title="receipts.title" :count="receipts.count" />
       </div>
       <el-row>
-        <el-col :span="10">
+        <el-col :span="window.width > 767 ? 10 : 24">
           <div class="heading">Student Detail</div>
           <div style="border-radius: 10px 10px 0px 0px">
             <el-row style="border-radius: 10px 10px 0px 0px;background: #fcdfbd66;padding: 25px;">
@@ -64,7 +64,7 @@
             </el-row>
           </div>
         </el-col>
-        <el-col :span="13" :offset="1" :rules="rules">
+        <el-col :span="window.width > 767 ? 13 : 24" :offset="window.width > 767 ? 1 : 0" :rules="rules">
           <div class="heading">Student Detail</div>
           <el-card shadow="none" style="height: 29rem" :rules="rules">
             <el-row :rules="rules">
@@ -119,9 +119,9 @@
         <div class="color: #000000CC;font-size:16px;padding:10px 0">Add Remarks</div>
         <textarea v-model="feeDetail.remarks" class="details-expenses__textarea" placeholder="Add reamarks if any..." rows="6" cols="210" />
       </el-row>
-      <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-        <e-button :span="18" label="Cancel" width="180" type="text" class="p-45 cancel-button-margin" />
-        <e-button :span="3" label="Proceed" width="180" @click="onSubmit" css="float-right" class="p-45" />
+      <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px'">
+        <e-button :span="window/width > 767 ? 18 : 12" label="Cancel" width="180" type="text" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''" />
+        <e-button :span="window.width > 767 ? 3 : 12" label="Proceed" width="180" @click="onSubmit" css="float-right" :class="window.width > 767 ? 'p-45' : ''" />
       </el-row>
     </e-container>
   </div>
@@ -133,8 +133,10 @@ import { dispatchGraphql} from "@/api/dispatcher"
 import eButton from "@/controls/eButton.vue"
 import { mapMutations } from "vuex"
 import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
 export default {
   components: { eButton, receiptsCard },
+  mixins: [screenSize],
   data: () => ({
     receiptscard: [
       {

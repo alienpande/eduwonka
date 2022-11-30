@@ -30,20 +30,22 @@
         </template>
       </el-table-column>
     </e-table>
-    <el-row class="text-right" style="border-top: 1px solid #fcdfbd; margin-top: 20px">
-      <e-button :span="17" label="Cancel" width="180" type="default" class="p-45 cancel-button-margin"></e-button>
-      <e-button :span="3" label="Download" width="180" @click="handleClick" css="float-right" class="p-45"></e-button>
+    <el-row class="text-right" :style="window.width > 767 ? 'border-top: 1px solid #fcdfbd; margin-top: 20px' : 'border-top: 1px solid #fcdfbd; margin-top: 20px; padding-top: 20px;'">
+      <e-button :span="window.width > 767 ? 17 : 12" label="Cancel" width="180" type="default" :class="window.width > 767 ? 'p-45 cancel-button-margin' : ''"></e-button>
+      <e-button :span="window.width > 767 ? 3 : 12" label="Download" width="180" @click="handleClick" css="float-right" :class="window.width > 767 ? 'p-45' : ''"></e-button>
     </el-row>
   </div>
 </template>
 <script>
 import { dispatchGraphql } from '@/api/dispatcher'
 // import moment from 'moment'
+import screenSize from '@/mixins/screenSize'
 
 export default {
   data: () => ({
     audience: [],
   }),
+  mixins: [screenSize],
   created() {
     this.getAudience()
   },
